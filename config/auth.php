@@ -57,6 +57,17 @@ return [
             'provider' => 'admins',
             'hash' => false,
         ],
+
+        'policial' => [
+            'driver' => 'session',
+            'provider' => 'policiais',
+        ],
+
+        'policial-api' => [
+            'driver' => 'token',
+            'provider' => 'policiais',
+            'hash' => false,
+        ],
     ],
 
     /*
@@ -85,6 +96,11 @@ return [
         'admins' => [
             'driver' => 'eloquent',
             'model' => App\Admin::class,
+        ],
+
+        'policiais' => [
+            'driver' => 'eloquent',
+            'model' => App\Policial::class,
         ],
 
         // 'users' => [
@@ -117,6 +133,12 @@ return [
 
         'admins' => [
             'provider' => 'admins',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+
+        'policiais' => [
+            'provider' => 'policiais',
             'table' => 'password_resets',
             'expire' => 60,
         ],
