@@ -68,6 +68,17 @@ return [
             'provider' => 'policiais',
             'hash' => false,
         ],
+
+        'pessoa' => [
+            'driver' => 'session',
+            'provider' => 'pessoas',
+        ],
+
+        'pessoa-api' => [
+            'driver' => 'token',
+            'provider' => 'pessoas',
+            'hash' => false,
+        ],
     ],
 
     /*
@@ -101,6 +112,11 @@ return [
         'policiais' => [
             'driver' => 'eloquent',
             'model' => App\Policial::class,
+        ],
+
+        'pessoas' => [
+            'driver' => 'eloquent',
+            'model' => App\Pessoa::class,
         ],
 
         // 'users' => [
@@ -139,6 +155,12 @@ return [
 
         'policiais' => [
             'provider' => 'policiais',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+
+        'pessoas' => [
+            'provider' => 'pessoas',
             'table' => 'password_resets',
             'expire' => 60,
         ],

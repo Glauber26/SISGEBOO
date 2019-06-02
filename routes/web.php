@@ -32,3 +32,9 @@ Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.logi
 Route::get('/policial', 'PolicialController@index')->name('policial.dashboard');
 Route::get('/policial/login', 'Auth\PolicialLoginController@index')->name('policial.login');
 Route::post('/policial/login', 'Auth\PolicialLoginController@login')->name('policial.login.submit');
+
+
+//Rotas Pessoa
+Route::get('/pessoa', 'PessoaController@index')->name('pessoa.dashboard');
+Route::get('/pessoa/login', 'Auth\PessoaLoginController@index')->name('pessoa.login');
+Route::post('/pessoa/login', 'Auth\PessoaLoginController@login')->name('pessoa.login.submit');

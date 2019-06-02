@@ -6,10 +6,10 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Policial extends Authenticatable
+class Pessoa extends Authenticatable
 {
     use Notifiable;
-    protected $guard = 'policiais';
+    protected $guard = 'pessoa';
 
     /**
      * The attributes that are mass assignable.

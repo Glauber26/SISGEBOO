@@ -29,6 +29,10 @@ class RedirectIfAuthenticated
                 return redirect()->route('policial.dashboard');
                 break;
 
+                case 'pessoa':
+                return redirect()->route('pessoa.dashboard');
+                break;
+
                 default:
                 return redirect('/home');
                 break;
