@@ -38,3 +38,8 @@ Route::post('/policial/login', 'Auth\PolicialLoginController@login')->name('poli
 Route::get('/pessoa', 'PessoaController@index')->name('pessoa.dashboard');
 Route::get('/pessoa/login', 'Auth\PessoaLoginController@index')->name('pessoa.login');
 Route::post('/pessoa/login', 'Auth\PessoaLoginController@login')->name('pessoa.login.submit');
+
+
+Route::get('/cadastro', 'ControladorPessoa@create')->name('cadastro.pessoa');
+Route::post('/cadastro', 'ControladorPessoa@store')->name('cadastro.pessoa.submit');
+
