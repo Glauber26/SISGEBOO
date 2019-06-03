@@ -5,10 +5,10 @@
   <div class="row justify-content-center">
     <div class="col-md-12">
       <div class="card">
-        <div class="card-header">Para registrar um Boletin de Ocorrência, cadastre-se</div>
+        <div class="card-header">Editar Pessoa</div>
 
         <div class="card-body">
-          <form method="POST" action="{{ route('cadastro.pessoa.submit') }}">
+          <form method="POST" action="{{$pessoa->id}}">
             @csrf
 
             <b>Dados Pessoais</b>
@@ -19,7 +19,7 @@
               <!--Campo Nome-->
               <div class="col-md-6">
                 <label for="inputNome">Nome</label>
-                <input type="text" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" name="name" id="name" placeholder="Nome" value="{{ old('name') }}">
+                <input type="text" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" name="name" id="name" placeholder="Nome" value="{{$pessoa->name}}">
 
                 @if($errors->has('name'))
                 <div class="invalid-feedback">
@@ -32,7 +32,7 @@
               <!--Campo RG-->
               <div class="col-md-4">
                 <label for="inputRG">RG</label>
-                <input type="number" class="form-control  {{ $errors->has('rg') ? 'is-invalid' : '' }}" name="rg" id="rg" placeholder="RG" value="{{ old('rg') }}">
+                <input type="number" class="form-control  {{ $errors->has('rg') ? 'is-invalid' : '' }}" name="rg" id="rg" placeholder="RG" value="{{$pessoa->rg}}">
 
                 @if($errors->has('rg'))
                 <div class="invalid-feedback">
@@ -47,7 +47,7 @@
                 <label for="inputState">UF do RG</label>
 
                 <select class="custom-select required mr-sm-2 {{ $errors->has('ufrg') ? 'is-invalid' : '' }}"name="ufrg" id="ufrg">
-                  <option value="">UF do RG</option>
+                  <option value="{{$pessoa->ufrg}}">{{$pessoa->ufrg}}</option>
                   <option value="MG">MG</option>
                   <option value="RJ">RJ</option>
                   <option value="SP">SP</option>
@@ -93,7 +93,7 @@
               <!--Camop CPF-->
               <div class="form-group col-md-3">
                 <label for="inputCPF">CPF</label>
-                <input type="number" class="form-control {{ $errors->has('cpf') ? 'is-invalid' : '' }}" name="cpf" id="cpf" placeholder="CPF" value="{{ old('cpf') }}">
+                <input type="number" class="form-control {{ $errors->has('cpf') ? 'is-invalid' : '' }}" name="cpf" id="cpf" placeholder="CPF" value="{{$pessoa->cpf}}">
 
                 @if($errors->has('cpf'))
                 <div class="invalid-feedback">
@@ -105,7 +105,7 @@
               <!--Campo Data de Nascimento-->
               <div class="form-group col-md-3">
                 <label for="inputnascimento">Data de Nascimento</label>
-                <input type="date" class="form-control {{ $errors->has('nascimento') ? 'is-invalid' : '' }}" name="nascimento" id="nascimento" value="{{ old('nascimento') }}">
+                <input type="date" class="form-control {{ $errors->has('nascimento') ? 'is-invalid' : '' }}" name="nascimento" id="nascimento" value="{{$pessoa->nascimento}}">
 
                 @if($errors->has('nascimento'))
                 <div class="invalid-feedback">
@@ -117,7 +117,7 @@
               <!--Campo Telefone-->
               <div class="form-group col">
                 <label for="telefone">Telefone</label>
-                <input type="number" class="form-control  {{ $errors->has('telefone') ? 'is-invalid' : '' }}" name="telefone" id="telefone" placeholder="Telefone" value="{{ old('telefone') }}">
+                <input type="number" class="form-control  {{ $errors->has('telefone') ? 'is-invalid' : '' }}" name="telefone" id="telefone" placeholder="Telefone" value="{{$pessoa->telefone}}">
 
                 @if($errors->has('telefone'))
                 <div class="invalid-feedback">
@@ -128,10 +128,10 @@
 
               <!--Campo Tipo-->
               <div class="form-group col-md-2">
-                <label for="inputTipo">Tipo</label>
+                <label for="inputFuncao">Tipo</label>
 
-                <select class="custom-select required mr-sm-2 {{ $errors->has('tipo') ? 'is-invalid' : '' }}" name="tipo" id="tipo">
-                  <option value="">Tipo</option>
+                <select class="custom-select required mr-sm-2 {{ $errors->has('funcao') ? 'is-invalid' : '' }}" name="tipo" id="tipo">
+                  <option value="{{$pessoa->tipo}}">{{$pessoa->tipo}}</option>
                   <option value="Vitima">Vítima</option>
                   <option value="Testemunha">Testemunha</option>
                 </select>
@@ -158,7 +158,7 @@
               <!--Campo Rua-->
               <div class="form-group col-md-5">
                 <label for="inputRua">Rua</label>
-                <input type="text" class="form-control {{ $errors->has('rua') ? 'is-invalid' : '' }}" name="rua" id="rua" placeholder="Rua" value="{{ old('rua') }}">
+                <input type="text" class="form-control {{ $errors->has('rua') ? 'is-invalid' : '' }}" name="rua" id="rua" placeholder="Rua" value="{{$pessoa->rua}}">
 
                 @if($errors->has('rua'))
                 <div class="invalid-feedback">
@@ -170,7 +170,7 @@
               <!--Campo Bairro-->
               <div class="form-group col-md-3">
                 <label for="inputBairro">Bairro</label>
-                <input type="text" class="form-control {{ $errors->has('bairro') ? 'is-invalid' : '' }}" name="bairro" id="bairro" placeholder="Bairro" value="{{ old('bairro') }}">
+                <input type="text" class="form-control {{ $errors->has('bairro') ? 'is-invalid' : '' }}" name="bairro" id="bairro" placeholder="Bairro" value="{{$pessoa->bairro}}">
 
                 @if($errors->has('bairro'))
                 <div class="invalid-feedback">
@@ -182,7 +182,7 @@
               <!--Campo Cidade-->
               <div class="form-group col-md-3">
                 <label for="inputCidade">Cidade</label>
-                <input type="text" class="form-control {{ $errors->has('cidade') ? 'is-invalid' : '' }}" name="cidade" id="cidade" placeholder="Cidade" value="{{ old('cidade') }}">
+                <input type="text" class="form-control {{ $errors->has('cidade') ? 'is-invalid' : '' }}" name="cidade" id="cidade" placeholder="Cidade" value="{{$pessoa->cidade}}">
 
                 @if($errors->has('cidade'))
                 <div class="invalid-feedback">
@@ -196,7 +196,7 @@
                 <label for="inputState">Estado</label>
 
                 <select class="custom-select required mr-sm-2 {{ $errors->has('estado') ? 'is-invalid' : '' }}"name="estado" id="estado">
-                  <option value=""></option>
+                  <option value="{{$pessoa->estado}}">{{$pessoa->estado}}</option>
                   <option value="MG">MG</option>
                   <option value="RJ">RJ</option>
                   <option value="SP">SP</option>
@@ -246,7 +246,7 @@
               <!--Campo E-Mail-->
               <div class="col-md-6">
                 <label for="email">E-Mail</label>
-                <input type="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" name="email" id="email" placeholder="E-Mail" value="{{ old('email') }}">
+                <input type="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" name="email" id="email" placeholder="E-Mail" value="{{$pessoa->email}}">
 
                 @if($errors->has('email'))
                 <span class="invalid-feedback">
@@ -271,7 +271,7 @@
             </div>
 
             <!--Botão de Enviar o formulario-->
-            <button type="submit" class="btn btn-primary">Cadastre-se</button> 
+            <button type="submit" class="btn btn-primary">Atualizar Dados</button> 
           </form>
         </div>
       </div>
