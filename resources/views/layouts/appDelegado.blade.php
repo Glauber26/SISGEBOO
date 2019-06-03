@@ -35,7 +35,7 @@
                     <ul class="navbar-nav mr-auto">
 
 
-                       <li class="nav-item dropdown">
+                     <li class="nav-item dropdown">
 
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Administrativo Delegacia
@@ -89,6 +89,21 @@
                         <a class="dropdown-item" href="{{route('busca.pessoas')}}">Listar Pessoas</a>
                         <a class="dropdown-item" href="#">Editar Pessoas</a>
                         <a class="dropdown-item" href="#">Excluir Pessoas</a>
+                    </div>
+
+                </li>
+
+
+                <li class="nav-item dropdown">
+
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Ocorrências
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{route('busca.ocorrencias.anonimas')}}">Ôcorrências Anônimas</a>
+                        <a class="dropdown-item disabled" href="#">Ocorrências...</a>
+                        <a class="dropdown-item disabled" href="#">Ocorrências...</a>
                     </div>
 
                 </li>

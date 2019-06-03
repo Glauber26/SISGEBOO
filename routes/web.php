@@ -68,3 +68,6 @@ Route::post('/pessoa/login', 'Auth\PessoaLoginController@login')->name('pessoa.l
 Route::get('/cadastro', 'ControladorPessoa@create')->name('cadastro.pessoa');
 Route::post('/cadastro', 'ControladorPessoa@store')->name('cadastro.pessoa.submit');
 
+Route::get('/denunciaanonima', 'ControladorDenunciaAnonima@create')->name('denuncia.anonima');
+Route::get('/admin/ocorrencias/anonimas', 'ControladorDenunciaAnonima@index')->name('busca.ocorrencias.anonimas');
+Route::post('/denunciaanonima', 'ControladorDenunciaAnonima@store')->name('denuncia.anonima.submit');
