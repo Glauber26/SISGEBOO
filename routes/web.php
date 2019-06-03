@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
 });
 
 Auth::routes();
@@ -26,6 +26,31 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
 Route::get('/admin/login', 'Auth\AdminLoginController@index')->name('admin.login');
 Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+
+Route::get('/admin/cadastro/policial/novo', 'ControladorPolicial@create')->name('cadastro.policial');
+Route::post('/admin/cadastro/policial/novo', 'ControladorPolicial@store')->name('cadastro.policial.submit');
+Route::get('/admin/policiais', 'ControladorPolicial@index')->name('busca.policiais');
+Route::post('/admin/policiais/editar/{id}', 'ControladorPolicial@update');
+Route::get('/admin/policiais/editar/{id}', 'ControladorPolicial@edit');
+Route::get('/admin/policiais/apagar/{id}', 'ControladorPolicial@destroy');
+Route::get('/admin/delegados', 'ControladorDelegado@index')->name('busca.delegados');
+Route::get('/admin/pessoas', 'ControladorPessoa@index')->name('busca.pessoas');
+
+Route::post('/admin/pessoas/editar/{id}', 'ControladorPessoa@update');
+Route::get('/admin/pessoas/editar/{id}', 'ControladorPessoa@edit');
+Route::get('/admin/pessoas/apagar/{id}', 'ControladorPessoa@destroy');
+
+
+
+Route::post('/admin/delegados/editar/{id}', 'ControladorDelegado@update');
+Route::get('/admin/delegados/editar/{id}', 'ControladorDelegado@edit');
+Route::get('/admin/delegados/apagar/{id}', 'ControladorDelegado@destroy');
+Route::get('/admin/cadastro/delegado/novo', 'ControladorDelegado@create')->name('cadastro.delegado');
+Route::post('/admin/cadastro/delegado/novo', 'ControladorDelegado@store')->name('cadastro.delegado.submit');
+
+
+//Route::get('/cadastro/delegado/novo', 'ControladorDelegado@create')->name('cadastro.delegado');
+//Route::post('/cadastro/delegado/novo', 'ControladorDelegado@store')->name('cadastro.delegado.submit'); backdor do admin do sistema
 
 
 //Rotas Policial

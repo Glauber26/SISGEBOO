@@ -13,25 +13,26 @@ class CreateAdminsTable extends Migration
      */
     public function up()
     {
-        Schema::create('admins', function (Blueprint $table) {
-           $table->bigIncrements('id');
-           $table->string('name');
-           $table->string('email',100)->unique();
-           $table->timestamp('email_verified_at')->nullable();
-           $table->string('password');
-           $table->string('cpf');
-           $table->string('rg');
-           $table->string('ufrg');
-           $table->date('nascimento');
-           $table->enum('funcao', ['Delegado'])->default($value = 'Delegado');
-           $table->string('rua');
-           $table->string('bairro');
-           $table->string('cidade');
-           $table->string('estado');
-           $table->string('telefone');
-           $table->rememberToken();
-           $table->timestamps();
-       });
+      Schema::create('admins', function (Blueprint $table) {
+       $table->bigIncrements('id');
+       $table->string('name');
+       $table->string('email',100)->unique();
+       $table->timestamp('email_verified_at')->nullable();
+       $table->string('password');
+       $table->string('cpf');
+       $table->string('rg');
+       $table->string('ufrg');
+       $table->date('nascimento');
+       $table->enum('funcao', ['Delegado'])->default($value = 'Delegado');
+       $table->string('rua');
+       $table->string('bairro');
+       $table->string('cidade');
+       $table->string('estado');
+       $table->string('telefone');
+       $table->softDeletes();
+       $table->rememberToken();
+       $table->timestamps();
+     });
     }
 
     /**
@@ -41,6 +42,6 @@ class CreateAdminsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admins');
+      Schema::dropIfExists('admins');
     }
-}
+  }
