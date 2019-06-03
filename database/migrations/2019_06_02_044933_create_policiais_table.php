@@ -29,6 +29,7 @@ class CreatePoliciaisTable extends Migration
          $table->string('cidade');
          $table->string('estado');
          $table->string('telefone');
+         $table->softDeletes();
          $table->rememberToken();
          $table->timestamps();
      });
