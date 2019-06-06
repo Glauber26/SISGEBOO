@@ -5,10 +5,10 @@
   <div class="row justify-content-center">
     <div class="col-md-12">
       <div class="card">
-        <div class="card-header">Para registrar um Boletin de Ocorrência, cadastre-se</div>
+        <div class="card-header">Cadastro de pessoa física</div>
 
         <div class="card-body">
-          <form method="POST" action="{{ route('cadastro.pessoa.submit') }}">
+          <form method="POST" action="{{ route('cadastro.pessoa.fisica.submit') }}">
             @csrf
 
             <b>Dados Pessoais</b>
@@ -27,7 +27,6 @@
                 </div>
                 @endif
               </div>
-
 
               <!--Campo RG-->
               <div class="col-md-4">
@@ -86,6 +85,8 @@
             </div>
 
 
+
+
             <!--Outra linha-->
 
             <div class="form-group row">
@@ -128,10 +129,10 @@
 
               <!--Campo Tipo-->
               <div class="form-group col-md-2">
-                <label for="inputTipo">Tipo</label>
+                <label for="inputTipo">Vítima ou Testemunha?</label>
 
                 <select class="custom-select required mr-sm-2 {{ $errors->has('tipo') ? 'is-invalid' : '' }}" name="tipo" id="tipo">
-                  <option value="">Tipo</option>
+                  <option value="">Selecione</option>
                   <option value="Vitima">Vítima</option>
                   <option value="Testemunha">Testemunha</option>
                 </select>
