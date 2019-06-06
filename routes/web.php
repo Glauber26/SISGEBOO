@@ -69,8 +69,8 @@ Route::get('/identificacao', 'ControladorPessoa@selecionarPessoa')->name('cadast
 Route::get('/identificacao/cadastro/pessoafisica', 'ControladorPessoa@create')->name('cadastro.pessoa.fisica');
 Route::post('/identificacao/cadastro/pessoafisica', 'ControladorPessoa@store')->name('cadastro.pessoa.fisica.submit');
 
-Route::get('/identificacao/cadastro/pessoajuridica', 'ControladorPessoa@create')->name('cadastro.pessoa.juridica');
-Route::post('/identificacao/cadastro/pessoajuridica', 'ControladorPessoa@store')->name('cadastro.pessoa.juridica.submit');
+Route::get('/identificacao/cadastro/pessoajuridica', 'ControladorPessoa@createPJ')->name('cadastro.pessoa.juridica');
+Route::post('/identificacao/cadastro/pessoajuridica', 'ControladorPessoa@storePJ')->name('cadastro.pessoa.juridica.submit');
 
 Route::get('/identificacao/cadastro/pessoaestrangeira', 'ControladorPessoa@createPE')->name('cadastro.pessoa.estrangeira');
 Route::post('/identificacao/cadastro/pessoaestrangeira', 'ControladorPessoa@storePE')->name('cadastro.pessoa.estrangeira.submit');

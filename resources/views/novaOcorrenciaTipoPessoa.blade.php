@@ -33,7 +33,7 @@
             <div class="card-body">
               <h5 class="card-title">Pessoa Jurídica</h5>
               <p class="card-text">Cadastro destinado para vítimas e testemunhas que são caracterizadas como pessoa Jurídica</p>
-              <a href="#" class="btn btn-primary">Sou uma pessoa Jurídica, desejo prosseguir!</a>
+              <a href="{{route('cadastro.pessoa.juridica')}}" class="btn btn-primary">Sou uma pessoa Jurídica, desejo prosseguir!</a>
             </div>
           </div>
         </div>

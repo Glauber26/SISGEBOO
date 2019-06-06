@@ -31,11 +31,110 @@ class ControladorPessoa extends Controller
 
     }
 
-
 //-------------------------------------------------------
 
 
 
+
+
+
+
+public function createPJ()
+    {
+        return view('novaPessoaJuridica');
+
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function storePJ(Request $request)
+    {
+
+     $regras = [
+        'name' => 'required',
+        'password' => 'required',
+        'cnpj' => 'required',
+        'razao_social' => 'required',
+        'nascimento' => 'required',
+        'tipo' => 'required',
+        'rua' => 'required',
+        'bairro' => 'required',
+        'cidade' => 'required',
+        'estado' => 'required',
+        'telefone' => 'required',
+        'email' => 'required|unique:pessoas|email'
+    ];
+
+    $mensagens = [
+         //voce consegue especificar para cada validação uma mensagem diferente, entretanto isso fica inviável para sistemas muito grandes, por isso criamos mensagems genéricas com base apenas na validação
+        'name.required' => 'O campo nome é obrigatório',
+        'email.unique' => 'O e-mail informado já está cadastrado',
+            //criando mensagens genéricas
+        'required' => 'O campo :attribute é obrigatório',
+        'email' => 'Informe um e-mail válido'
+    ];
+        //caso de erro no preenchimento do formlario, a ágina ira recarregar com os dados cadastrados continuados reenchidos
+    $name = $request->old('name');
+    $cnpj = $request->old('cnpj');
+    $razao_social = $request->old('razao_social');
+    $nascimento = $request->old('nascimento');
+    $rua = $request->old('rua');
+    $bairro = $request->old('bairro');
+    $tipo = $request->old('tipo');
+    $cidade = $request->old('cidade');
+    $bairro = $request->old('bairro');
+    $email = $request->old('email');
+    $telefone = $request->old('telefone');
+
+    $request->validate($regras, $mensagens);
+
+
+    $pessoa = new Pessoa();
+    $pessoa->name = $request->input('name');
+    $pessoa->cnpj = $request->input('cnpj');
+    $pessoa->razao_social = $request->input('razao_social');
+    $pessoa->nascimento = $request->input('nascimento');
+    $pessoa->tipo = $request->input('tipo');
+    $pessoa->rua = $request->input('rua');
+    $pessoa->bairro = $request->input('bairro');
+    $pessoa->cidade = $request->input('cidade');
+    $pessoa->estado = $request->input('estado');
+    $pessoa->email = $request->input('email');
+    $pessoa->telefone = $request->input('telefone');
+    $pessoa->password = Hash::make($request->input('password'));
+    $pessoa->save();
+    return redirect('/');
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//-------------------------------------------------------
 
 
 
@@ -115,21 +214,6 @@ class ControladorPessoa extends Controller
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
