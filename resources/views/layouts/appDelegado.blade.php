@@ -121,7 +121,7 @@
                 </li>
                 @if (Route::has('register'))
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('cadastro.pessoa') }}">Abrir Ocorrência</a>
+                    <a class="nav-link" href="{{ route('cadastro.selecionar.pessoa') }}">Abrir Ocorrência</a>
                 </li>
                 @endif
                 @else

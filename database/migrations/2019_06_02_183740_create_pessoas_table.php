@@ -19,9 +19,6 @@ class CreatePessoasTable extends Migration
        $table->string('email',100)->unique();
        $table->timestamp('email_verified_at')->nullable();
        $table->string('password');
-       $table->string('cpf');
-       $table->string('rg');
-       $table->string('ufrg');
        $table->date('nascimento');
        $table->enum('tipo', ['Vitima', 'Testemunha'])->default($value = 'Vitima');
        $table->string('rua');
@@ -29,6 +26,20 @@ class CreatePessoasTable extends Migration
        $table->string('cidade');
        $table->string('estado');
        $table->string('telefone');
+
+       //pessoa física
+       $table->string('cpf')->nullable();
+       $table->string('rg')->nullable();
+       $table->string('ufrg')->nullable();
+
+       //pessoa jurídica
+       $table->string('cnpj')->nullable();
+       $table->string('razao_social')->nullable();
+
+       //pessoa estrangeira
+       $table->string('passaporte')->nullable();
+       $table->string('rne')->nullable();
+
        $table->softDeletes();
        $table->rememberToken();
        $table->timestamps();
