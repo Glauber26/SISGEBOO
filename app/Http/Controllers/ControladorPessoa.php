@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 use App\Pessoa;
 
 class ControladorPessoa extends Controller
@@ -15,9 +16,17 @@ class ControladorPessoa extends Controller
      */
     public function index()
     {
-        $pessoas = Pessoa::all(); //Retorna todos os pessoas
-        return view('buscaPessoas', compact('pessoas'));
-    }
+
+
+
+     /* $pessoas = DB::table('pessoas')->select('*')->where('cpf', '<>', NULL)->get(); Usando o DB table busca todas as pessoas que tem um cpf diferente de nulo
+        return view('buscaPessoas', compact('pessoas'));*/
+
+
+       $pessoas = Pessoa::all()->where( 'cpf', '<>', NULL); //Retorna todos os pessoas que possui o cpf diferente de nulo, utilizando o eloquent ORM
+       //$pessoas = Pessoa::all(); //Retorna todos os pessoas
+       return view('buscaPessoas', compact('pessoas'));
+   }
 
     /**
      * Show the form for creating a new resource.
@@ -39,7 +48,7 @@ class ControladorPessoa extends Controller
 
 
 
-public function createPJ()
+    public function createPJ()
     {
         return view('novaPessoaJuridica');
 
@@ -117,34 +126,17 @@ public function createPJ()
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //-------------------------------------------------------
 
 
 
 
 
-    public function createPE()
-    {
-        return view('novaPessoaEstrangeira');
+public function createPE()
+{
+    return view('novaPessoaEstrangeira');
 
-    }
+}
 
     /**
      * Store a newly created resource in storage.
@@ -216,18 +208,13 @@ public function createPJ()
 }
 
 
-
-
-
-
-
 //----------------------------------------------
 
-    public function create()
-    {
-        return view('novaPessoa');
+public function create()
+{
+    return view('novaPessoa');
 
-    }
+}
 
     /**
      * Store a newly created resource in storage.
@@ -321,12 +308,15 @@ public function createPJ()
      */
     public function edit($id)
     {
-        $pessoa = Pessoa::find($id);
-        if (isset($pessoa)) {
-            return view('editarPessoa', compact('pessoa'));
-        }
-        return redirect('/admin/pessoas');
+
+      $pessoa = Pessoa::find($id);
+
+      if (isset($pessoa)) {
+        return view('editarPessoa', compact('pessoa'));
     }
+
+    return redirect('/admin/pessoas');
+}
 
     /**
      * Update the specified resource in storage.

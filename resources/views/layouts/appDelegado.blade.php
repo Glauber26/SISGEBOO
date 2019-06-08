@@ -86,7 +86,7 @@
                     </a>
 
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{route('busca.pessoas')}}">Listar Pessoas</a>
+                        <a class="dropdown-item" href="{{route('busca.pessoas')}}">Listar Pessoas Física</a>
                         <a class="dropdown-item" href="#">Editar Pessoas</a>
                         <a class="dropdown-item" href="#">Excluir Pessoas</a>
                     </div>
