@@ -20,13 +20,24 @@ class ControladorPessoa extends Controller
 
 
      /* $pessoas = DB::table('pessoas')->select('*')->where('cpf', '<>', NULL)->get(); Usando o DB table busca todas as pessoas que tem um cpf diferente de nulo
-        return view('buscaPessoas', compact('pessoas'));*/
+     return view('buscaPessoas', compact('pessoas'));*/
 
 
        $pessoas = Pessoa::all()->where( 'cpf', '<>', NULL); //Retorna todos os pessoas que possui o cpf diferente de nulo, utilizando o eloquent ORM
        //$pessoas = Pessoa::all(); //Retorna todos os pessoas
        return view('buscaPessoas', compact('pessoas'));
    }
+
+
+   public function indexPessoaJuridica(){
+       $pessoas = Pessoa::all()->where( 'cnpj', '<>', NULL); //Retorna todos os pessoas que possui o cpf diferente de nulo, utilizando o eloquent ORM
+       //$pessoas = Pessoa::all(); //Retorna todos os pessoas
+       return view('buscaPessoasJuridicas', compact('pessoas'));
+
+   }
+
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -63,7 +74,7 @@ class ControladorPessoa extends Controller
     public function storePJ(Request $request)
     {
 
-     $regras = [
+       $regras = [
         'name' => 'required',
         'password' => 'required',
         'cnpj' => 'required',
@@ -118,9 +129,54 @@ class ControladorPessoa extends Controller
     $pessoa->save();
     return redirect('/');
 
+}
 
 
+public function editPessoaJuridica($id)
+{
 
+  $pessoa = Pessoa::find($id);
+
+  if (isset($pessoa)) {
+    return view('editarPessoaJuridica', compact('pessoa'));
+}
+
+return redirect('/admin/pessoas/juridicas');
+}
+
+
+public function updatePessoaJuridica(Request $request, $id)
+{
+    $pessoa = Pessoa::find($id);
+    if (isset($pessoa)) {
+        $pessoa->name = $request->input('name');
+        $pessoa->cnpj = $request->input('cnpj');
+        $pessoa->razao_social = $request->input('razao_social');
+        $pessoa->ufrg = $request->input('ufrg');
+        $pessoa->nascimento = $request->input('nascimento');
+        $pessoa->tipo = $request->input('tipo');
+        $pessoa->rua = $request->input('rua');
+        $pessoa->bairro = $request->input('bairro');
+        $pessoa->cidade = $request->input('cidade');
+        $pessoa->estado = $request->input('estado');
+        $pessoa->email = $request->input('email');
+        $pessoa->telefone = $request->input('telefone');
+        $pessoa->password = Hash::make($request->input('password'));
+        $pessoa->save();
+    }
+
+    return redirect('/admin/pessoas/juridicas');
+}
+
+
+public function destroyPessoaJuridica($id)
+{
+    $pessoa = Pessoa::find($id);
+    if(isset($pessoa)){
+        $pessoa->delete();
+    }
+
+    return redirect('/admin/pessoas/juridicas');
 }
 
 
@@ -147,7 +203,7 @@ public function createPE()
     public function storePE(Request $request)
     {
 
-     $regras = [
+       $regras = [
         'name' => 'required',
         'password' => 'required',
         'rne' => 'required',
@@ -225,7 +281,7 @@ public function create()
     public function store(Request $request)
     {
 
-     $regras = [
+       $regras = [
         'name' => 'required',
         'password' => 'required',
         'cpf' => 'required',

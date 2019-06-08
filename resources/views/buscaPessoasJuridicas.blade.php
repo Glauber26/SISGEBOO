@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 <main role="main">
   <div class="row" align="center">
     <div class="container">
@@ -10,7 +11,7 @@
           <div class="card border">
             <div class="card-header">
               <div class="card-title text-center">
-                Lista de Pessoas Físicas
+                Lista de Pessoas Jurídicas
                 <form class="form-inline float-right">
                  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" align="left ">
                  <a href="#" class="btn btn-outline-success my-2 my-sm-0">Search</a>
@@ -23,13 +24,12 @@
               <tr>
 
                 <th>Nome</th>
-                <th>CPF</th>
-                <th>RG</th>
+                <th>CNPJ</th>
+                <th>Razão Social</th>
                 <th>Nascimento</th>
                 <th>Email</th>
                 <th>Cidade</th>
                 <th>Estado</th>
-                <th>Id</th>
                 <th>Ações</th>
               </tr>
             </thead>
@@ -39,16 +39,15 @@
               <tr>
 
                 <td>{{ $pessoa->name }}</td>
-                <td>{{ $pessoa->cpf }}</td>
-                <td>{{$pessoa->ufrg}} {{ $pessoa->rg }}</td>
+                <td>{{ $pessoa->cnpj }}</td>
+                <td>{{$pessoa->razao_social}}</td>
                 <td>{{ $pessoa->nascimento }}</td>
                 <td>{{ $pessoa->email }}</td>
                 <td>{{ $pessoa->cidade }}</td>
                 <td>{{ $pessoa->estado }}</td>
-                <td>{{ $pessoa->id }}</td>
                 <td>
-                  <a href="/SISGEBOO/public/admin/pessoas/editar/{{$pessoa->id}}" class="btn btn-sm btn-outline-primary my-2 my-sm-0">Editar</a>
-                  <a href="/SISGEBOO/public/admin/pessoas/apagar/{{$pessoa->id}}" class="btn btn-sm btn-outline-danger my-2 my-sm-0r">Apagar</a></td>
+                  <a href="/SISGEBOO/public/admin/pessoas/juridicas/editar/{{$pessoa->id}}" class="btn btn-sm btn-outline-primary my-2 my-sm-0">Editar</a>
+                  <a href="/SISGEBOO/public/admin/pessoas/juridicas/apagar/{{$pessoa->id}}" class="btn btn-sm btn-outline-danger my-2 my-sm-0r">Apagar</a></td>
                 </tr>
                 @endforeach
               </tbody>
