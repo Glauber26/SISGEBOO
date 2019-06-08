@@ -36,6 +36,7 @@ Route::get('/admin/policiais/apagar/{id}', 'ControladorPolicial@destroy');
 Route::get('/admin/delegados', 'ControladorDelegado@index')->name('busca.delegados');
 Route::get('/admin/pessoas/fisica', 'ControladorPessoa@index')->name('busca.pessoas');
 Route::get('/admin/pessoas/juridicas', 'ControladorPessoa@indexPessoaJuridica')->name('busca.pessoas.juridica');
+Route::get('/admin/pessoas/estrangeiras', 'ControladorPessoa@indexPessoaEstrangeira')->name('busca.pessoas.estrangeira');
 
 Route::post('/admin/pessoas/editar/{id}', 'ControladorPessoa@update');
 Route::get('/admin/pessoas/editar/{id}', 'ControladorPessoa@edit');
@@ -44,6 +45,10 @@ Route::get('/admin/pessoas/apagar/{id}', 'ControladorPessoa@destroy');
 Route::post('/admin/pessoas/juridicas/editar/{id}', 'ControladorPessoa@updatePessoaJuridica');
 Route::get('/admin/pessoas/juridicas/editar/{id}', 'ControladorPessoa@editPessoaJuridica');
 Route::get('/admin/pessoas/juridicas/apagar/{id}', 'ControladorPessoa@destroyPessoaJuridica');
+
+Route::post('/admin/pessoas/estrangeiras/editar/{id}', 'ControladorPessoa@updatePessoaEstrangeira');
+Route::get('/admin/pessoas/estrangeiras/editar/{id}', 'ControladorPessoa@editPessoaEstrangeira');
+Route::get('/admin/pessoas/estrangeiras/apagar/{id}', 'ControladorPessoa@destroyPessoaEstrangeira');
 
 Route::post('/admin/delegados/editar/{id}', 'ControladorDelegado@update');
 Route::get('/admin/delegados/editar/{id}', 'ControladorDelegado@edit');

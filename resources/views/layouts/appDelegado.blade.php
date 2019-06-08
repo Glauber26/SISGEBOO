@@ -87,7 +87,8 @@
 
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{route('busca.pessoas')}}">Listar Pessoas Física</a>
-                        <a class="dropdown-item" href="{{route('busca.pessoas.juridica')}}">Listar Pessoas Jurídica</a>
+                        <a class="dropdown-item" href="{{route('busca.pessoas.juridica')}}">Listar Pessoas Jurídicas</a>
+                        <a class="dropdown-item" href="{{route('busca.pessoas.estrangeira')}}">Listar Pessoas Estrangeiras</a>
                         <a class="dropdown-item" href="#">Editar Pessoas</a>
                         <a class="dropdown-item" href="#">Excluir Pessoas</a>
                     </div>
@@ -118,7 +119,7 @@
                 <!-- Authentication Links -->
                 @guest
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('pessoa.login') }}">Já é cadastrado? Logue-se</a>
+                    <a class="nav-link" href="#">Delegado</a>
                 </li>
                 @if (Route::has('register'))
                 <li class="nav-item">
