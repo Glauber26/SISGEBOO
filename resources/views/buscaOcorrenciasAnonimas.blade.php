@@ -23,6 +23,7 @@
 							<th>Estado</th>
 							<th>Descrição dos Suspeitos</th>
 							<th>Descrição dos Acontecimentos</th>
+							<th>Visualizar</th>
 						</tr>
 					</thead>
 
@@ -37,11 +38,9 @@
 							<td>{{ $ocorrencia->estado }}</td>
 							<td>{{ $ocorrencia->descricao_suspeito }}</td>
 							<td>{{ $ocorrencia->descricao_ocorrencia }}</td>
-							<!--<td>
-								<a href="/SISGEBOO/public/admin/ocorrencias/editar/{{$ocorrencia->id}}" class="btn btn-sm btn-primary">Editar</a>
-								<a href="/SISGEBOO/public/admin/ocorrencias/apagar/{{$ocorrencia->id}}" class="btn btn-sm btn-danger">Apagar</a></td>
-
-							</tr>-->
+							<td>
+								<a href="/SISGEBOO/public/admin/ocorrencias/anonimas/visualizar/{{$ocorrencia->id}}" class="btn btn-sm btn-primary">Visualizar Ocorrência</a>
+							</tr>
 							@endforeach
 						</tbody>
 

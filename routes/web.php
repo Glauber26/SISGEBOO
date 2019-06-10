@@ -18,6 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/imprimir/{id}', 'ControladorDenunciaAnonima@pdf')->name('home');
 
 
 
@@ -85,4 +86,5 @@ Route::post('/identificacao/cadastro/pessoaestrangeira', 'ControladorPessoa@stor
 
 Route::get('/denunciaanonima', 'ControladorDenunciaAnonima@create')->name('denuncia.anonima');
 Route::get('/admin/ocorrencias/anonimas', 'ControladorDenunciaAnonima@index')->name('busca.ocorrencias.anonimas');
+Route::get('/admin/ocorrencias/anonimas/visualizar/{id}', 'ControladorDenunciaAnonima@show');
 Route::post('/denunciaanonima', 'ControladorDenunciaAnonima@store')->name('denuncia.anonima.submit');

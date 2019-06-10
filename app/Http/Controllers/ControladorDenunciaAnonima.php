@@ -4,16 +4,28 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\DenunciaAnonima;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class ControladorDenunciaAnonima extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
+
+
+    public function pdf($id){
+
+       $denuncia = DenunciaAnonima::find($id);
+      //PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
+
+       $pdf = PDF::loadview ( 'imprimirAnonima', compact('denuncia') );
+        return $pdf->download('denunciaAnonima.pdf');
+
+      // return $pdf->stream();
+
+
+   }
+
+
+   public function index()
+   {
                 $ocorrencias = DenunciaAnonima::all(); //Retorna todos os pessoas
                 return view('buscaOcorrenciasAnonimas', compact('ocorrencias'));
             }
@@ -86,7 +98,15 @@ class ControladorDenunciaAnonima extends Controller
      */
     public function show($id)
     {
-        //
+        $denuncia = DenunciaAnonima::find($id);
+
+        if (isset($denuncia)) {
+            return view('verDenunciasAnonimas', compact('denuncia'));
+        }
+
+        return redirect('/admin/ocorrencias/anonimas');
+
+
     }
 
     /**
