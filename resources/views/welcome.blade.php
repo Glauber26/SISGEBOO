@@ -4,13 +4,7 @@
 
 
 
-<div class="container">
 
-
-
-    <div class="row justify-content-center">
-        <div class="col-md">
-          <div class="bd-example">
               <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                   <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
@@ -19,24 +13,24 @@
               </ol>
               <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <img src="img/cpf.jpg" class="d-block w-100" alt="Faça um Boletin de Ocorrência Online">
+                    <img src="img/pm1.jpg" class="d-block w-100" alt="Faça um Boletin de Ocorrência Online">
                     <div class="carousel-caption d-none d-md-block">
                       <h5>Boletin de Ocorrência Online</h5>
                       <p>Registre um, é fácil!</p>
                   </div>
               </div>
               <div class="carousel-item">
-                <img src="img/boww-1.jpg" class="d-block w-100" alt="...">
+                <img src="img/pm33.jpg" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                  <h5>Second slide label</h5>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  <h5>Proerd - PMMG</h5>
+                  <p>Livrando nossas crianças do mundo das drogas.</p>
               </div>
           </div>
           <div class="carousel-item">
-            <img src="img/bwwo-1.jpg" class="d-block w-100" alt="...">
+            <img src="img/pm2.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-              <h5>Third slide label</h5>
-              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+              <h5>Polícia Militar de MG</h5>
+              <p>Nossa Profissão, sua segurança!</p>
           </div>
       </div>
   </div>
@@ -49,7 +43,7 @@
       <span class="sr-only">Next</span>
   </a>
 </div>
-</div>
-</div>
-</div>
+
+
+
 @endsection

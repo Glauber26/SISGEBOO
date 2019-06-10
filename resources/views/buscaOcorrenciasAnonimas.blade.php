@@ -2,10 +2,19 @@
 
 @section('content')
 
-
 <main role="main">
 	<div class="row" align="center">
 		<div class="container">
+
+
+
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="http://localhost/SISGEBOO/public/admin">Dashboard Admin</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Ocorrências Anônimas</a></li>
+				</ol>
+			</nav>
+
 			<div class="card border">
 				<div class="card-header">
 					<div class="card-title">
@@ -39,7 +48,7 @@
 							<td>{{ $ocorrencia->descricao_suspeito }}</td>
 							<td>{{ $ocorrencia->descricao_ocorrencia }}</td>
 							<td>
-								<a href="/SISGEBOO/public/admin/ocorrencias/anonimas/visualizar/{{$ocorrencia->id}}" class="btn btn-sm btn-primary">Visualizar Ocorrência</a>
+								<a href="/SISGEBOO/public/admin/ocorrencias/anonimas/visualizar/{{$ocorrencia->id}}" class="btn btn-sm btn-outline-primary my-2 my-sm-0">Visualizar Ocorrência</a>
 							</tr>
 							@endforeach
 						</tbody>

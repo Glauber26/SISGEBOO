@@ -114,13 +114,13 @@
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
                 @guest
-                <!--<li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('pessoa.login') }}">Já é cadastrado? Logue-se</a>
-                </li>-->
+                </li>
                 @if (Route::has('register'))
-               <!-- <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('cadastro.selecionar.pessoa') }}">Abrir Ocorrência</a>
-                </li> -->
+                </li>
                 @endif
                 @else
                 <li class="nav-item dropdown">

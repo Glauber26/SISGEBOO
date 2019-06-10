@@ -6,6 +6,14 @@
 <main role="main">
 	<div class="row" align="center">
 		<div class="container">
+
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="http://localhost/SISGEBOO/public/admin">Dashboard Admin</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Policiais</a></li>
+				</ol>
+			</nav>
+
 			<div class="card border">
 				<div class="card-header">
 					<div class="card-title">
@@ -44,8 +52,8 @@
 							<td>{{ $policial->cidade }}</td>
 							<td>{{ $policial->estado }}</td>
 							<td>
-								<a href="/SISGEBOO/public/admin/policiais/editar/{{$policial->id}}" class="btn btn-sm btn-primary">Editar</a>
-								<a href="/SISGEBOO/public/admin/policiais/apagar/{{$policial->id}}" class="btn btn-sm btn-danger">Apagar</a></td>
+								<a href="/SISGEBOO/public/admin/policiais/editar/{{$policial->id}}" class="btn btn-sm btn-outline-primary my-2 my-sm-0">Editar</a>
+								<a href="/SISGEBOO/public/admin/policiais/apagar/{{$policial->id}}" class="btn btn-sm btn-outline-danger my-2 my-sm-0r">Apagar</a></td>
 
 							</tr>
 							@endforeach

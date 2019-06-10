@@ -2,6 +2,15 @@
 
 @section('content')
 <div class="container">
+
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="http://localhost/SISGEBOO/public/admin">Dashboard Admin</a></li>
+      <li class="breadcrumb-item"><a href="http://localhost/SISGEBOO/public/admin/delegados">Delegados</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Editar Delegado #00000{{$delegado->id}}</a></li>
+    </ol>
+  </nav>
+
   <div class="row justify-content-center">
     <div class="col-md-12">
       <div class="card">
@@ -270,7 +279,7 @@
             </div>
 
             <!--Botão de Enviar o formulario-->
-            <button type="submit" class="btn btn-primary">Atualizar Dados</button> 
+            <button type="submit" class="btn btn-outline-primary my-2 my-sm-0">Atualizar Dados</button> 
           </form>
         </div>
       </div>

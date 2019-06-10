@@ -237,7 +237,7 @@
           </div>
 
           <!--Botão de Enviar o formulario-->
-          <button type="submit" class="btn btn-primary">Cadastre-se</button> 
+          <button type="submit" class="btn btn-outline-primary my-2 my-sm-0">Cadastre-se</button> 
         </form>
       </div>
     </div>

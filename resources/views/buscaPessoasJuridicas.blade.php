@@ -6,6 +6,14 @@
 <main role="main">
   <div class="row" align="center">
     <div class="container">
+
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="http://localhost/SISGEBOO/public/admin">Dashboard Admin</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Pessoas Jurídicas</a></li>
+        </ol>
+      </nav>
+
       <div class="row justify-content-center">
         <div class="col-md">
           <div class="card border">

@@ -6,6 +6,14 @@
 <main role="main">
 	<div class="row" align="center">
 		<div class="container">
+
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="http://localhost/SISGEBOO/public/admin">Dashboard Admin</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Delegados</a></li>
+				</ol>
+			</nav>
+
 			<div class="card border">
 				<div class="card-header">
 					<div class="card-title">
@@ -21,7 +29,6 @@
 							<th>CPF</th>
 							<th>RG</th>
 							<th>Nascimento</th>
-							<th>Função</th>
 							<th>Email</th>
 							<th>Rua</th>
 							<th>Bairro</th>
@@ -41,11 +48,10 @@
 							<td>{{ $delegado->email }}</td>
 							<td>{{ $delegado->rua }}</td>
 							<td>{{ $delegado->bairro }}</td>
-							<td>{{ $delegado->cidade }}</td>
-							<td>{{ $delegado->estado }}</td>
+							<td>{{ $delegado->cidade }}/{{ $delegado->estado }}</td>
 							<td>
-								<a href="/SISGEBOO/public/admin/delegados/editar/{{$delegado->id}}" class="btn btn-sm btn-primary">Editar</a>
-								<a href="/SISGEBOO/public/admin/delegados/apagar/{{$delegado->id}}" class="btn btn-sm btn-danger">Apagar</a></td>
+								<a href="/SISGEBOO/public/admin/delegados/editar/{{$delegado->id}}" class="btn btn-sm btn-outline-primary my-2 my-sm-0">Editar</a>
+								<a href="/SISGEBOO/public/admin/delegados/apagar/{{$delegado->id}}" class="btn btn-sm btn-outline-danger my-2 my-sm-0r">Apagar</a></td>
 
 							</tr>
 							@endforeach

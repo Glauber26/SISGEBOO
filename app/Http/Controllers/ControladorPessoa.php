@@ -393,7 +393,7 @@ public function update(Request $request, $id)
         $pessoa->save();
     }
 
-    return redirect('/admin/pessoas');
+    return redirect('/admin/pessoas/fisica');
 }
 
 
@@ -404,6 +404,6 @@ public function destroy($id)
         $pessoa->delete();
     }
 
-    return redirect('/admin/pessoas');
+    return redirect('/admin/pessoas/fisica');
 }
 }

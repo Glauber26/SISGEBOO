@@ -3,7 +3,17 @@
 @section('content')
 <div class="container">
   <div class="row justify-content-center">
+
     <div class="col-md-12">
+
+     <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="http://localhost/SISGEBOO/public/admin">Dashboard Admin</a></li>
+        <li class="breadcrumb-item"><a href="http://localhost/SISGEBOO/public/admin/ocorrencias/anonimas">Ocorrências Anônimas</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Visualizar ocorrência #00000{{$denuncia->id}}</li>
+      </ol>
+    </nav>
+
       <div class="card">
         <div class="card-header" align="center">Ocorrência Anônima #00000{{$denuncia->id}}</div>
 
@@ -25,7 +35,16 @@
          <hr>
 
          <div class="container">
+
            <div class="row">
+            <div class="col-sm">
+              <dt>Local para Averiguação da Ocorrência</dt>O comunicante informa que o local para averiguação da denuncia fica na Rua: {{$denuncia->rua}}, localizada no bairro {{$denuncia->bairro}} na cidade de {{$denuncia->cidade}} no estado de {{$denuncia->estado}}
+            </div>
+          </div>
+
+
+          <hr>
+          <div class="row">
             <div class="col-sm">
               <dt>Observações</dt>Ocorrência foi registrada na base de dados da POLICIA MILITAR de Minas Gerais de forma online e anônima, através do Sistema Gerenciador de Boletins de Ocorrência Online- SISGEBOO
             </div>
