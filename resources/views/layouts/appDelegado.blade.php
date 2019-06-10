@@ -35,7 +35,7 @@
                     <ul class="navbar-nav mr-auto">
 
 
-                     <li class="nav-item dropdown">
+                       <li class="nav-item dropdown">
 
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Administrativo Delegacia
@@ -119,7 +119,7 @@
                 <!-- Authentication Links -->
                 @guest
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Delegado</a>
+                    <a class="nav-link" href="{{ route('pessoa.login') }}">Já é cadastrado? Logue-se</a>
                 </li>
                 @if (Route::has('register'))
                 <li class="nav-item">

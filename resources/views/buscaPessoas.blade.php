@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 <main role="main">
   <div class="row" align="center">
     <div class="container">
