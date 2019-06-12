@@ -17,7 +17,7 @@ class ControladorPolicial extends Controller
 
 public function index()
 {
-       $policiais = Policial::all(); //Retorna todos os policiais
+       $policiais = Policial::paginate(5); //Retorna todos os policiais
        return view('buscaPolicial', compact('policiais'));
    }
 

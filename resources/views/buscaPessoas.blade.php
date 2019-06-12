@@ -33,11 +33,9 @@
 
                 <th>Nome</th>
                 <th>CPF</th>
-                <th>RG</th>
                 <th>Nascimento</th>
                 <th>Email</th>
                 <th>Cidade</th>
-                <th>Estado</th>
                 <th>Ações</th>
               </tr>
             </thead>
@@ -48,19 +46,19 @@
 
                 <td>{{ $pessoa->name }}</td>
                 <td>{{ $pessoa->cpf }}</td>
-                <td>{{$pessoa->ufrg}} {{ $pessoa->rg }}</td>
                 <td>{{ $pessoa->nascimento }}</td>
                 <td>{{ $pessoa->email }}</td>
-                <td>{{ $pessoa->cidade }}</td>
-                <td>{{ $pessoa->estado }}</td>
+                <td>{{ $pessoa->cidade }}/{{ $pessoa->estado }}</td>
                 <td>
                   <a href="/SISGEBOO/public/admin/pessoas/editar/{{$pessoa->id}}" class="btn btn-sm btn-outline-primary my-2 my-sm-0">Editar</a>
                   <a href="/SISGEBOO/public/admin/pessoas/apagar/{{$pessoa->id}}" class="btn btn-sm btn-outline-danger my-2 my-sm-0r">Apagar</a></td>
                 </tr>
                 @endforeach
               </tbody>
-
             </table>
+            <div class="card-footer" align="center">
+              {{$pessoas->links()}}
+            </div>
           </div>
         </div>
       </div>

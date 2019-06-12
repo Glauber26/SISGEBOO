@@ -23,21 +23,21 @@ class ControladorPessoa extends Controller
      return view('buscaPessoas', compact('pessoas'));*/
 
 
-       $pessoas = Pessoa::all()->where( 'cpf', '<>', NULL); //Retorna todos os pessoas que possui o cpf diferente de nulo, utilizando o eloquent ORM
-       //$pessoas = Pessoa::all(); //Retorna todos os pessoas
+       $pessoas = Pessoa::where( 'cpf', '<>', NULL)->paginate(5); //Retorna todos os pessoas que possui o cpf diferente de nulo, utilizando o eloquent ORM
+     //$pessoas = Pessoa::all(); //Retorna todos os pessoas
        return view('buscaPessoas', compact('pessoas'));
    }
 
 
    public function indexPessoaJuridica(){
-       $pessoas = Pessoa::all()->where( 'cnpj', '<>', NULL); //Retorna todos os pessoas que possui o cpf diferente de nulo, utilizando o eloquent ORM
+       $pessoas = Pessoa::where( 'cnpj', '<>', NULL)->paginate(5); //Retorna todos os pessoas que possui o cpf diferente de nulo, utilizando o eloquent ORM
        //$pessoas = Pessoa::all(); //Retorna todos os pessoas
        return view('buscaPessoasJuridicas', compact('pessoas'));
 
    }
 
    public function indexPessoaEstrangeira(){
-           $pessoas = Pessoa::all()->where( 'passaporte', '<>', NULL); //Retorna todos os pessoas que possui o cpf diferente de nulo, utilizando o eloquent ORM
+           $pessoas = Pessoa::where( 'passaporte', '<>', NULL)->paginate(5); //Retorna todos os pessoas que possui o cpf diferente de nulo, utilizando o eloquent ORM
        //$pessoas = Pessoa::all(); //Retorna todos os pessoas
            return view('buscaPessoasEstrangeiras', compact('pessoas'));
        }

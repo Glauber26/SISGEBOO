@@ -28,10 +28,7 @@
 							<th>Nome</th>
 							<th>CPF</th>
 							<th>RG</th>
-							<th>Nascimento</th>
 							<th>Email</th>
-							<th>Rua</th>
-							<th>Bairro</th>
 							<th>Cidade</th>
 							<th>Ações</th>
 						</tr>
@@ -44,10 +41,7 @@
 							<td>{{ $delegado->name }}</td>
 							<td>{{ $delegado->cpf }}</td>
 							<td>{{$delegado->ufrg}} {{ $delegado->rg }}</td>
-							<td>{{ $delegado->nascimento }}</td>
 							<td>{{ $delegado->email }}</td>
-							<td>{{ $delegado->rua }}</td>
-							<td>{{ $delegado->bairro }}</td>
 							<td>{{ $delegado->cidade }}/{{ $delegado->estado }}</td>
 							<td>
 								<a href="/SISGEBOO/public/admin/delegados/editar/{{$delegado->id}}" class="btn btn-sm btn-outline-primary my-2 my-sm-0">Editar</a>
@@ -58,6 +52,11 @@
 						</tbody>
 
 					</table>
+
+					<div class="card-footer" align="center">
+						{{$delegados->links()}}
+					</div>
+
 				</div>
 
 			</div>

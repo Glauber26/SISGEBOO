@@ -34,7 +34,6 @@
                 <th>Nome</th>
                 <th>Passaporte</th>
                 <th>RNE</th>
-                <th>Nascimento</th>
                 <th>Email</th>
                 <th>Cidade</th>
                 <th>Estado</th>
@@ -49,7 +48,6 @@
                 <td>{{ $pessoa->name }}</td>
                 <td>{{ $pessoa->passaporte }}</td>
                 <td>{{$pessoa->rne}}</td>
-                <td>{{ $pessoa->nascimento }}</td>
                 <td>{{ $pessoa->email }}</td>
                 <td>{{ $pessoa->cidade }}</td>
                 <td>{{ $pessoa->estado }}</td>
@@ -59,8 +57,10 @@
                 </tr>
                 @endforeach
               </tbody>
-
             </table>
+            <div class="card-footer" align="center">
+              {{$pessoas->links()}}
+            </div>
           </div>
         </div>
       </div>

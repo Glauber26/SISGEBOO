@@ -28,11 +28,7 @@
 							<th>Nome</th>
 							<th>CPF</th>
 							<th>RG</th>
-							<th>Nascimento</th>
-							<th>Função</th>
 							<th>Email</th>
-							<th>Rua</th>
-							<th>Bairro</th>
 							<th>Cidade</th>
 							<th>Ações</th>
 						</tr>
@@ -45,12 +41,8 @@
 							<td>{{ $policial->name }}</td>
 							<td>{{ $policial->cpf }}</td>
 							<td>{{$policial->ufrg}} {{ $policial->rg }}</td>
-							<td>{{ $policial->nascimento }}</td>
 							<td>{{ $policial->email }}</td>
-							<td>{{ $policial->rua }}</td>
-							<td>{{ $policial->bairro }}</td>
-							<td>{{ $policial->cidade }}</td>
-							<td>{{ $policial->estado }}</td>
+							<td>{{ $policial->cidade }}/{{ $policial->estado }}</td>
 							<td>
 								<a href="/SISGEBOO/public/admin/policiais/editar/{{$policial->id}}" class="btn btn-sm btn-outline-primary my-2 my-sm-0">Editar</a>
 								<a href="/SISGEBOO/public/admin/policiais/apagar/{{$policial->id}}" class="btn btn-sm btn-outline-danger my-2 my-sm-0r">Apagar</a></td>
@@ -58,8 +50,10 @@
 							</tr>
 							@endforeach
 						</tbody>
-
 					</table>
+					<div class="card-footer" align="center">
+						{{$policiais->links()}}
+					</div>
 				</div>
 
 			</div>

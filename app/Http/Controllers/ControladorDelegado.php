@@ -17,7 +17,7 @@ class ControladorDelegado extends Controller
 
     public function index()
     {
-    $delegados = Admin::all(); //Retorna todos os delegados
+    $delegados = Admin::paginate(5); //Retorna todos os delegados
     return view('buscaDelegado', compact('delegados'));
 }
 
