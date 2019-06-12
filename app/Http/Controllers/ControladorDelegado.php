@@ -8,11 +8,13 @@ use App\Admin;
 
 class ControladorDelegado extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+
+    public function __construct(){
+        $this->middleware('auth:admin');
+    }
+
+
     public function index()
     {
     $delegados = Admin::all(); //Retorna todos os delegados
@@ -37,7 +39,7 @@ class ControladorDelegado extends Controller
      */
     public function store(Request $request)
     {
-     $regras = [
+       $regras = [
         'name' => 'required',
         'password' => 'required',
         'cpf' => 'required',
@@ -117,8 +119,8 @@ class ControladorDelegado extends Controller
      */
     public function edit($id)
     {
-     $delegado = Admin::find($id);
-     if (isset($delegado)) {
+       $delegado = Admin::find($id);
+       if (isset($delegado)) {
         return view('editarDelegado', compact('delegado'));
     }
     return redirect('/admin/delegados');
@@ -162,8 +164,8 @@ class ControladorDelegado extends Controller
      */
     public function destroy($id)
     {
-     $delegado = Admin::find($id);
-     if(isset($delegado)){
+       $delegado = Admin::find($id);
+       if(isset($delegado)){
         $delegado->delete();
     }
 

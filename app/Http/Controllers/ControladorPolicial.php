@@ -8,94 +8,87 @@ use App\Policial;
 
 class ControladorPolicial extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
+
+ public function __construct(){
+    $this->middleware('auth:admin');
+}
+
+
+
+public function index()
+{
        $policiais = Policial::all(); //Retorna todos os policiais
        return view('buscaPolicial', compact('policiais'));
    }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('novoPolicial');
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
+   public function create()
+   {
+    return view('novoPolicial');
+}
 
-       $regras = [
-        'name' => 'required',
-        'password' => 'required',
-        'cpf' => 'required',
-        'rg' => 'required',
-        'ufrg' => 'required',
-        'nascimento' => 'required',
-        'funcao' => 'required',
-        'rua' => 'required',
-        'bairro' => 'required',
-        'cidade' => 'required',
-        'estado' => 'required',
-        'telefone' => 'required',
-        'email' => 'required|unique:Policials|email'
-    ];
 
-    $mensagens = [
+public function store(Request $request)
+{
+
+ $regras = [
+    'name' => 'required',
+    'password' => 'required',
+    'cpf' => 'required',
+    'rg' => 'required',
+    'ufrg' => 'required',
+    'nascimento' => 'required',
+    'funcao' => 'required',
+    'rua' => 'required',
+    'bairro' => 'required',
+    'cidade' => 'required',
+    'estado' => 'required',
+    'telefone' => 'required',
+    'email' => 'required|unique:Policials|email'
+];
+
+$mensagens = [
          //voce consegue especificar para cada validação uma mensagem diferente, entretanto isso fica inviável para sistemas muito grandes, por isso criamos mensagems genéricas com base apenas na validação
-        'name.required' => 'O campo nome é obrigatório',
-        'email.unique' => 'O e-mail informado já está cadastrado',
-        'ufrg.required' => 'O campo UF do RG é obrigatório',
+    'name.required' => 'O campo nome é obrigatório',
+    'email.unique' => 'O e-mail informado já está cadastrado',
+    'ufrg.required' => 'O campo UF do RG é obrigatório',
             //criando mensagens genéricas
-        'required' => 'O campo :attribute é obrigatório',
-        'email' => 'Informe um e-mail válido'
-    ];
+    'required' => 'O campo :attribute é obrigatório',
+    'email' => 'Informe um e-mail válido'
+];
         //caso de erro no preenchimento do formlario, a ágina ira recarregar com os dados cadastrados continuados reenchidos
-    $name = $request->old('name');
-    $cpf = $request->old('cpf');
-    $rg = $request->old('rg');
-    $nascimento = $request->old('nascimento');
-    $rua = $request->old('rua');
-    $bairro = $request->old('bairro');
-    $funcao = $request->old('funcao');
-    $ufrg = $request->old('ufrg');
-    $cidade = $request->old('cidade');
-    $bairro = $request->old('bairro');
-    $email = $request->old('email');
-    $telefone = $request->old('telefone');
+$name = $request->old('name');
+$cpf = $request->old('cpf');
+$rg = $request->old('rg');
+$nascimento = $request->old('nascimento');
+$rua = $request->old('rua');
+$bairro = $request->old('bairro');
+$funcao = $request->old('funcao');
+$ufrg = $request->old('ufrg');
+$cidade = $request->old('cidade');
+$bairro = $request->old('bairro');
+$email = $request->old('email');
+$telefone = $request->old('telefone');
 
-    $request->validate($regras, $mensagens);
+$request->validate($regras, $mensagens);
 
 
-    $Policial = new Policial();
-    $Policial->name = $request->input('name');
-    $Policial->cpf = $request->input('cpf');
-    $Policial->rg = $request->input('rg');
-    $Policial->ufrg = $request->input('ufrg');
-    $Policial->nascimento = $request->input('nascimento');
-    $Policial->funcao = $request->input('funcao');
-    $Policial->rua = $request->input('rua');
-    $Policial->bairro = $request->input('bairro');
-    $Policial->cidade = $request->input('cidade');
-    $Policial->estado = $request->input('estado');
-    $Policial->email = $request->input('email');
-    $Policial->telefone = $request->input('telefone');
-    $Policial->password = Hash::make($request->input('password'));
-    $Policial->save();
-    return redirect('/admin');
+$Policial = new Policial();
+$Policial->name = $request->input('name');
+$Policial->cpf = $request->input('cpf');
+$Policial->rg = $request->input('rg');
+$Policial->ufrg = $request->input('ufrg');
+$Policial->nascimento = $request->input('nascimento');
+$Policial->funcao = $request->input('funcao');
+$Policial->rua = $request->input('rua');
+$Policial->bairro = $request->input('bairro');
+$Policial->cidade = $request->input('cidade');
+$Policial->estado = $request->input('estado');
+$Policial->email = $request->input('email');
+$Policial->telefone = $request->input('telefone');
+$Policial->password = Hash::make($request->input('password'));
+$Policial->save();
+return redirect('/admin');
 
 
 
@@ -169,8 +162,8 @@ class ControladorPolicial extends Controller
      */
     public function destroy($id)
     {
-       $policial = Policial::find($id);
-       if(isset($policial)){
+     $policial = Policial::find($id);
+     if(isset($policial)){
         $policial->delete();
     }
 

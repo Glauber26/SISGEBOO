@@ -23,7 +23,13 @@
 
                     Você está logado como Delegado, seu perfil é um administrador!
                 </div>
+
+
+                <div class="card-footer"></div>
             </div>
+
+
+
         </div>
     </div>
 </div>

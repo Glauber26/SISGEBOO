@@ -6,8 +6,15 @@ use Illuminate\Http\Request;
 use App\DenunciaAnonima;
 use Barryvdh\DomPDF\Facade as PDF;
 
+
 class ControladorDenunciaAnonima extends Controller
 {
+
+
+    public function __construct(){
+        $this->middleware('auth:admin');
+    }
+
 
 
     public function pdf($id){
@@ -16,7 +23,7 @@ class ControladorDenunciaAnonima extends Controller
       //PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
 
        $pdf = PDF::loadview ( 'imprimirAnonima', compact('denuncia') );
-        return $pdf->download('denunciaAnonima.pdf');
+       return $pdf->download('denunciaAnonima.pdf');
 
       // return $pdf->stream();
 
@@ -24,21 +31,22 @@ class ControladorDenunciaAnonima extends Controller
    }
 
 
-   public function index()
+   public function index()    
    {
-                $ocorrencias = DenunciaAnonima::all(); //Retorna todos os pessoas
-                return view('buscaOcorrenciasAnonimas', compact('ocorrencias'));
-            }
+          $ocorrencias = DenunciaAnonima::paginate(4); //Retorna todos os pessoas
+          return view('buscaOcorrenciasAnonimas', compact('ocorrencias'));
+      }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
+
+
+
+      public function create()
+      {
         return view('novaDenunciaAnonima');
     }
+
+
+
 
     /**
      * Store a newly created resource in storage.
