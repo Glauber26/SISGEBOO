@@ -88,15 +88,10 @@ Route::post('/identificacao/cadastro/pessoaestrangeira', 'ControladorPessoa@stor
 //Ocorrências anônimas
 Route::get('/denunciaanonima', 'ControladorGuest@createDenunciaAnonima')->name('denuncia.anonima');
 Route::post('/denunciaanonima', 'ControladorGuest@storeDenunciaAnonima')->name('denuncia.anonima.submit');
-
-
-
 Route::get('/admin/ocorrencias/anonimas', 'ControladorDenunciaAnonima@index')->name('busca.ocorrencias.anonimas');
 Route::get('/admin/ocorrencias/anonimas/visualizar/{id}', 'ControladorDenunciaAnonima@show');
 Route::post('/denunciaanonima', 'ControladorDenunciaAnonima@store')->name('denuncia.anonima.submit');
 
 
-//Ocorrências de transito
-Route::get('/admin/ocorrencias/furtoveiculos', 'ControladorFurtoVeiculo@create')->name('denuncia.furto.veiculo');
-Route::get('/admin/ocorrencias/anonimas', 'ControladorDenunciaAnonima@index')->name('busca.ocorrencias.anonimas');
-Route::get('/admin/ocorrencias/anonimas/visualizar/{id}', 'ControladorDenunciaAnonima@show');
+Route::get('/admin/ocorrencias/furto/veiculos/novo', 'ControladorOcorrencia@createFurtoVeiculo')->name('furto.veiculo.novo');
+Route::post('/admin/ocorrencias/furto/veiculos/novo', 'ControladorOcorrencia@storeFurtoVeiculo')->name('furto.veiculo.submit');
