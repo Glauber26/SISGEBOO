@@ -98,3 +98,6 @@ Route::post('/admin/ocorrencias/furto/veiculos/novo', 'ControladorOcorrencia@sto
 
 Route::get('/admin/ocorrencias/pessoasdesaparecidas/novo', 'ControladorOcorrencia@createPessoaDesaparecida')->name('pessoa.desaparecida.novo');
 Route::post('/admin/ocorrencias/pessoasdesaparecidas/novo', 'ControladorOcorrencia@storePessoaDesaparecida')->name('pessoa.desaparecida.submit');
+
+Route::get('/admin/ocorrencias/acidentestransito/novo', 'ControladorOcorrencia@createAcidente')->name('acidente.novo');
+Route::post('/admin/ocorrencias/acidentestransito/novo', 'ControladorOcorrencia@storeAcidente')->name('acidente.submit');

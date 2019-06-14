@@ -67,7 +67,7 @@ class ControladorOcorrencia extends Controller
     public function storeFurtoVeiculo(Request $request)
     {
 
-     $regras = [
+       $regras = [
         'rua' => 'required',
         'bairro' => 'required',
         'cidade' => 'required',
@@ -209,12 +209,12 @@ public function createPessoaDesaparecida()
 public function storePessoaDesaparecida(Request $request)
 {
 
- $regras = [
+   $regras = [
     'rua' => 'required',
     'bairro' => 'required',
     'cidade' => 'required',
     'estado' => 'required',
-   'descricao' => 'required',
+    'descricao' => 'required',
     'ultima_localizacao_rua' => 'required',
     'ultima_localizacao_cidade' => 'required',
     'ultima_localizacao_estado' => 'required',
@@ -289,6 +289,106 @@ public function editPessoaDesaparecida($id)
 
 
 public function updatePessoaDesaparecida(Request $request, $id)
+{
+        //
+}
+
+
+
+
+//-------------------------------------------------------------------
+
+
+public function indexAcidente()
+{
+        //
+}
+
+
+public function createAcidente()
+{
+    return view('novoAcidente');
+}
+
+
+public function storeAcidente(Request $request)
+{
+
+   $regras = [
+
+    'descricao' => 'required',
+    'quant_vitimas' => 'required',
+    'vitimas' => 'required',
+    'bairroOcorrencia' => 'required',
+    'ruaOcorrencia' => 'required',
+    'cidadeOcorrencia' => 'required',
+    'estadoOcorrencia' => 'required',
+    'descricao_local' => 'required',
+    'nascimento' => 'required',
+    'nome' => 'required',
+    'cpf' => 'required',
+    'rg' => 'required',
+    'ufrg' => 'required',
+
+];
+
+$mensagens = [
+    'required' => 'O campo :attribute é obrigatório',
+
+];
+
+$rua = $request->old('ruaOcorrencia');
+$bairro = $request->old('bairroOcorrencia');
+$cidade = $request->old('cidadeOcorrencia');
+$estado = $request->old('estadoOcorrencia');
+$descricao_local = $request->old('descricao_local');
+$descricao = $request->old('descricao');
+$quant_vitimas = $request->old('quant_vitimas');
+$vitimas = $request->old('vitimas');
+$nascimento = $request->old('nascimento');
+$nome = $request->old('nome');
+$cpf = $request->old('cpf');
+$rg = $request->old('rg');
+$ufrg = $request->old('ufrg');
+
+
+$request->validate($regras, $mensagens);
+
+$acidente = new Ocorrencia();
+$acidente->rua = $request->input('ruaOcorrencia');
+$acidente->bairro = $request->input('bairroOcorrencia');
+$acidente->cidade = $request->input('cidadeOcorrencia');
+$acidente->estado = $request->input('estadoOcorrencia');
+$acidente->descricao_local = $request->input('descricao_local');
+$acidente->descricao_suspeito = $request->input('descricao');
+$acidente->quant_vitimas = $request->input('quant_vitimas');
+$acidente->vitimas = $request->input('vitimas');
+$acidente->nascimento = $request->input('nascimento');
+$acidente->ufrg = $request->input('ufrg');
+$acidente->rg = $request->input('rg');
+$acidente->nome = $request->input('nome');
+$acidente->cpf = $request->input('cpf');
+$acidente->save();
+
+return redirect('/');
+
+
+}
+
+
+public function showAcidente($id)
+{
+        //
+}
+
+
+public function editAcidente($id)
+{
+        //
+}
+
+
+public function updateAcidente(Request $request, $id)
 {
         //
 }
