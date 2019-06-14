@@ -394,4 +394,101 @@ public function updateAcidente(Request $request, $id)
 }
 
 
+
+
+//----------------------------------------------------------------------
+
+
+
+
+public function indexDoc()
+{
+        //
+}
+
+
+public function createDoc()
+{
+    return view('novoPerdaFurtoDocumentos');
+}
+
+
+public function storeDoc(Request $request)
+{
+
+   $regras = [
+    'rua' => 'required',
+    'bairro' => 'required',
+    'cidade' => 'required',
+    'estado' => 'required',
+    'descricao' => 'required',
+    'doc_nome' => 'required',
+    'nascimento' => 'required',
+    'telefone' => 'required',
+    'furto_ou_perda' => 'required',
+    'tipo' => 'required',
+    'doc_numero' => 'required',
+
+];
+
+$mensagens = [
+    'required' => 'O campo :attribute é obrigatório',
+
+];
+
+$rua = $request->old('rua');
+$bairro = $request->old('bairro');
+$cidade = $request->old('cidade');
+$estado = $request->old('estado');
+$descricao = $request->old('descricao');
+$doc_nome = $request->old('doc_nome');
+$nascimento = $request->old('nascimento');
+$telefone = $request->old('telefone');
+$furto_ou_perda = $request->old('furto_ou_perda');
+$tipo = $request->old('tipo');
+$doc_numero = $request->old('doc_numero');
+
+
+$request->validate($regras, $mensagens);
+
+$docFurtoPerda = new Ocorrencia();
+$docFurtoPerda->rua = $request->input('rua');
+$docFurtoPerda->bairro = $request->input('bairro');
+$docFurtoPerda->cidade = $request->input('cidade');
+$docFurtoPerda->estado = $request->input('estado');
+$docFurtoPerda->descricao_ocorrencia = $request->input('descricao');
+$docFurtoPerda->nascimento = $request->input('nascimento');
+$docFurtoPerda->doc_nome = $request->input('doc_nome');
+$docFurtoPerda->telefone = $request->input('telefone');
+$docFurtoPerda->furto_ou_perda = $request->input('furto_ou_perda');
+$docFurtoPerda->tipo = $request->input('tipo');
+$docFurtoPerda->doc_numero = $request->input('doc_numero');
+$docFurtoPerda->save();
+
+return redirect('/');
+
+
+}
+
+
+public function showDoc($id)
+{
+        //
+}
+
+
+public function editDoc($id)
+{
+        //
+}
+
+
+public function updateDoc(Request $request, $id)
+{
+        //
+}
+
+
+
+
 }
