@@ -104,3 +104,6 @@ Route::post('/admin/ocorrencias/acidentestransito/novo', 'ControladorOcorrencia@
 
 Route::get('/admin/ocorrencias/documentos/novo', 'ControladorOcorrencia@createDoc')->name('doc.novo');
 Route::post('/admin/ocorrencias/documentos/novo', 'ControladorOcorrencia@storeDoc')->name('doc.submit');
+
+Route::get('/admin/ocorrencias/objetos/novo', 'ControladorOcorrencia@createObj')->name('obj.novo');
+Route::post('/admin/ocorrencias/objetos/novo', 'ControladorOcorrencia@storeObj')->name('obj.submit');

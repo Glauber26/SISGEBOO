@@ -59,7 +59,7 @@ class CreateOcorrenciasTable extends Migration
             $table->string('objeto_descricao')->nullable();
             $table->string('objeto_quantidade')->nullable();
             $table->string('objeto_cor')->nullable();
-            $table->enum('objeto_marca', ['Particular', 'Aluguel', 'Serviço'])->nullable();
+            $table->string('objeto_marca')->nullable();
             $table->string('objeto_valor')->nullable();
 
 

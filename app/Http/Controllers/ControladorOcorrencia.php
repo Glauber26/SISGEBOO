@@ -67,7 +67,7 @@ class ControladorOcorrencia extends Controller
     public function storeFurtoVeiculo(Request $request)
     {
 
-       $regras = [
+     $regras = [
         'rua' => 'required',
         'bairro' => 'required',
         'cidade' => 'required',
@@ -209,7 +209,7 @@ public function createPessoaDesaparecida()
 public function storePessoaDesaparecida(Request $request)
 {
 
-   $regras = [
+ $regras = [
     'rua' => 'required',
     'bairro' => 'required',
     'cidade' => 'required',
@@ -314,7 +314,7 @@ public function createAcidente()
 public function storeAcidente(Request $request)
 {
 
-   $regras = [
+ $regras = [
 
     'descricao' => 'required',
     'quant_vitimas' => 'required',
@@ -416,7 +416,7 @@ public function createDoc()
 public function storeDoc(Request $request)
 {
 
-   $regras = [
+ $regras = [
     'rua' => 'required',
     'bairro' => 'required',
     'cidade' => 'required',
@@ -488,7 +488,128 @@ public function updateDoc(Request $request, $id)
         //
 }
 
+//--------------------------------------------------------------------------------
+
+public function indexObj()
+{
+        //
+}
 
 
+public function createObj()
+{
+    return view('novoPerdaFurtoObjetos');
+}
 
+
+public function storeObj(Request $request)
+{
+
+ $regras = [
+
+    'descricao' => 'required',
+    'telefone' => 'required',
+    'nascimento' => 'required',
+    'nome' => 'required',
+    'cpf' => 'required',
+    'rg' => 'required',
+    'ufrg' => 'required',
+    'rua' => 'required',
+    'bairro' => 'required',
+    'cidade' => 'required',
+    'estado' => 'required',
+    'objeto_nome' => 'required',
+    'objeto_marca' => 'required',
+    'objeto_cor' => 'required',
+    'objeto_valor' => 'required',
+    'objeto_quantidade' => 'required',
+    'objeto_descricao' => 'required',
+    'furto_ou_perda' => 'required',
+    'dataRoubo' => 'required',
+    'horaRoubo' => 'required',
+    'ameaca' => 'required',
+    'publico' => 'required',
+
+];
+
+$mensagens = [
+    'required' => 'O campo :attribute é obrigatório',
+
+];
+
+$rua = $request->old('ruaOcorrencia');
+$bairro = $request->old('bairroOcorrencia');
+$cidade = $request->old('cidadeOcorrencia');
+$estado = $request->old('estadoOcorrencia');
+$descricao = $request->old('descricao');
+$telefone = $request->old('telefone');
+$nascimento = $request->old('nascimento');
+$nome = $request->old('nome');
+$cpf = $request->old('cpf');
+$rg = $request->old('rg');
+$ufrg = $request->old('ufrg');
+$objeto_nome = $request->old('objeto_nome');
+$objeto_marca = $request->old('objeto_marca');
+$objeto_cor = $request->old('objeto_cor');
+$objeto_valor = $request->old('objeto_valor');
+$objeto_quantidade = $request->old('objeto_quantidade');
+$objeto_descricao = $request->old('objeto_descricao');
+$furto_ou_perda = $request->old('furto_ou_perda');
+$dataRoubo = $request->old('dataRoubo');
+$horaRoubo = $request->old('horaRoubo');
+$ameaca = $request->old('ameaca');
+$publico = $request->old('publico');
+
+
+$request->validate($regras, $mensagens);
+
+$objeto = new Ocorrencia();
+$objeto->rua = $request->input('rua');
+$objeto->bairro = $request->input('bairro');
+$objeto->cidade = $request->input('cidade');
+$objeto->estado = $request->input('estado');
+$objeto->descricao_ocorrencia = $request->input('descricao');
+$objeto->descricao_suspeito = $request->input('suspeito');
+$objeto->telefone = $request->input('telefone');
+$objeto->vitimas = $request->input('vitimas');
+$objeto->nascimento = $request->input('nascimento');
+$objeto->ufrg = $request->input('ufrg');
+$objeto->rg = $request->input('rg');
+$objeto->nome = $request->input('nome');
+$objeto->cpf = $request->input('cpf');
+$objeto->objeto_nome = $request->input('objeto_nome');
+$objeto->objeto_marca = $request->input('objeto_marca');
+$objeto->objeto_cor = $request->input('objeto_cor');
+$objeto->objeto_valor = $request->input('objeto_valor');
+$objeto->objeto_quantidade = $request->input('objeto_quantidade');
+$objeto->objeto_descricao = $request->input('objeto_descricao');
+$objeto->furto_ou_perda = $request->input('furto_ou_perda');
+$objeto->dataRoubo = $request->input('dataRoubo');
+$objeto->horaRoubo = $request->input('horaRoubo');
+$objeto->ameaca = $request->input('ameaca');
+$objeto->publico = $request->input('publico');
+$objeto->save();
+
+return redirect('/');
+
+
+}
+
+
+public function showObj($id)
+{
+        //
+}
+
+
+public function editObj($id)
+{
+        //
+}
+
+
+public function updateObj(Request $request, $id)
+{
+        //
+}
 }
