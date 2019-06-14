@@ -148,7 +148,7 @@ class ControladorOcorrencia extends Controller
     $furtoVeiculo->horaRoubo = $request->input('horaRoubo');
     $furtoVeiculo->ameaca = $request->input('ameaca');
     $furtoVeiculo->publico = $request->input('publico');
-    $furtoVeiculo->furto_ou_perda = 'Furto';
+    $furtoVeiculo->furto_ou_perda = 'Furto Veiculo';
     $furtoVeiculo->rua_roubo = $request->input('rua_roubo');
     $furtoVeiculo->bairro_roubo = $request->input('bairro_roubo');
     $furtoVeiculo->cidade_roubo = $request->input('cidade_roubo');
@@ -187,5 +187,111 @@ public function destroyFurtoVeiculo($id)
 {
         //
 }
+
+
+
+
+//--------------------------------------------------------------------------------
+
+
+public function indexPessoaDesaparecida()
+{
+        //
+}
+
+
+public function createPessoaDesaparecida()
+{
+    return view('novaPessoaDesaparecida');
+}
+
+
+public function storePessoaDesaparecida(Request $request)
+{
+
+ $regras = [
+    'rua' => 'required',
+    'bairro' => 'required',
+    'cidade' => 'required',
+    'estado' => 'required',
+   'descricao' => 'required',
+    'ultima_localizacao_rua' => 'required',
+    'ultima_localizacao_cidade' => 'required',
+    'ultima_localizacao_estado' => 'required',
+    'ultima_localizacao_bairro' => 'required',
+    'nascimento' => 'required',
+    'nome' => 'required',
+    'cpf' => 'required',
+    'telefone' => 'required',
+    'rg' => 'required',
+    'ufrg' => 'required',
+
+];
+
+$mensagens = [
+    'required' => 'O campo :attribute é obrigatório',
+
+];
+
+$rua = $request->old('rua');
+$bairro = $request->old('bairro');
+$cidade = $request->old('cidade');
+$estado = $request->old('estado');
+$descricao = $request->old('descricao');
+$ultima_localizacao_rua = $request->old('ultima_localizacao_rua');
+$ultima_localizacao_cidade = $request->old('ultima_localizacao_cidade');
+$ultima_localizacao_bairro = $request->old('ultima_localizacao_bairro');
+$ultima_localizacao_estado = $request->old('ultima_localizacao_estado');
+$nascimento = $request->old('nascimento');
+$nome = $request->old('nome');
+$cpf = $request->old('cpf');
+$telefone = $request->old('telefone');
+$rg = $request->old('rg');
+$ufrg = $request->old('ufrg');
+
+
+$request->validate($regras, $mensagens);
+
+$pessoaDesaparecida = new Ocorrencia();
+$pessoaDesaparecida->rua = $request->input('rua');
+$pessoaDesaparecida->bairro = $request->input('bairro');
+$pessoaDesaparecida->cidade = $request->input('cidade');
+$pessoaDesaparecida->estado = $request->input('estado');
+$pessoaDesaparecida->descricao_ocorrencia = $request->input('descricao');
+$pessoaDesaparecida->ultima_localizacao_rua = $request->input('ultima_localizacao_rua');
+$pessoaDesaparecida->ultima_localizacao_cidade = $request->input('ultima_localizacao_cidade');
+$pessoaDesaparecida->ultima_localizacao_estado = $request->input('ultima_localizacao_estado');
+$pessoaDesaparecida->ultima_localizacao_bairro = $request->input('ultima_localizacao_bairro');
+$pessoaDesaparecida->nascimento = $request->input('nascimento');
+$pessoaDesaparecida->ufrg = $request->input('ufrg');
+$pessoaDesaparecida->rg = $request->input('rg');
+$pessoaDesaparecida->nome = $request->input('nome');
+$pessoaDesaparecida->cpf = $request->input('cpf');
+$pessoaDesaparecida->telefone = $request->input('telefone');
+$pessoaDesaparecida->save();
+
+return redirect('/');
+
+
+}
+
+
+public function showPessoaDesaparecida($id)
+{
+        //
+}
+
+
+public function editPessoaDesaparecida($id)
+{
+        //
+}
+
+
+public function updatePessoaDesaparecida(Request $request, $id)
+{
+        //
+}
+
 
 }

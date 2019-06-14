@@ -27,7 +27,7 @@ class CreateOcorrenciasTable extends Migration
             $table->string('recuperado')->nullable();
             $table->enum('ameaca', ['Sim', 'Não'])->nullable();
             $table->enum('publico', ['Sim', 'Não'])->nullable();
-            $table->enum('furto_ou_perda', ['Furto', 'Perda'])->nullable();
+            $table->enum('furto_ou_perda', ['Furto Veiculo', 'Furto Objeto(s)', 'Furto Documento(s)', 'Perda Objeto(s)', 'Perda Documento(s)'])->nullable();
             $table->string('nascimento')->nullable();
             $table->string('nome')->nullable();
             $table->string('cpf')->nullable();
@@ -76,6 +76,7 @@ class CreateOcorrenciasTable extends Migration
             $table->string('ultima_localizacao_rua')->nullable();
             $table->string('ultima_localizacao_cidade')->nullable();
             $table->string('ultima_localizacao_estado')->nullable();
+            $table->string('ultima_localizacao_bairro')->nullable();
             $table->string('ultima_localizacao_descricao')->nullable();
 
         });

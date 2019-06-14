@@ -95,3 +95,6 @@ Route::post('/denunciaanonima', 'ControladorDenunciaAnonima@store')->name('denun
 
 Route::get('/admin/ocorrencias/furto/veiculos/novo', 'ControladorOcorrencia@createFurtoVeiculo')->name('furto.veiculo.novo');
 Route::post('/admin/ocorrencias/furto/veiculos/novo', 'ControladorOcorrencia@storeFurtoVeiculo')->name('furto.veiculo.submit');
+
+Route::get('/admin/ocorrencias/pessoasdesaparecidas/novo', 'ControladorOcorrencia@createPessoaDesaparecida')->name('pessoa.desaparecida.novo');
+Route::post('/admin/ocorrencias/pessoasdesaparecidas/novo', 'ControladorOcorrencia@storePessoaDesaparecida')->name('pessoa.desaparecida.submit');
