@@ -100,6 +100,9 @@ Route::get('/admin/ocorrencias/furto/veiculos/visualizarbo/{id}', 'ControladorOc
 Route::get('/admin/ocorrencias/furto/veiculos/visualizarbo/{id}/imprimir', 'ControladorOcorrencia@pdfFurtoVeiculos')->name('furto.veiculo.imprimir');
 
 Route::get('/admin/ocorrencias/pessoasdesaparecidas/novo', 'ControladorOcorrencia@createPessoaDesaparecida')->name('pessoa.desaparecida.novo');
+Route::get('/admin/ocorrencias/pessoasdesaparecidas', 'ControladorOcorrencia@indexPessoaDesaparecida')->name('pessoa.desaparecida.busca');
+Route::get('/admin/ocorrencias/pessoasdesaparecidas/visualizarbo/{id}', 'ControladorOcorrencia@showPessoaDesaparecida')->name('pessoa.desaparecida.ver');
+Route::get('/admin/ocorrencias/pessoasdesaparecidas/visualizarbo/{id}/imprimir', 'ControladorOcorrencia@pdfPessoaDesaparecida')->name('pessoa.desaparecida.imprimir');
 Route::post('/admin/ocorrencias/pessoasdesaparecidas/novo', 'ControladorOcorrencia@storePessoaDesaparecida')->name('pessoa.desaparecida.submit');
 
 Route::get('/admin/ocorrencias/acidentestransito/novo', 'ControladorOcorrencia@createAcidente')->name('acidente.novo');
