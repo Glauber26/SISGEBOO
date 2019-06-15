@@ -56,19 +56,19 @@ class ControladorOcorrencia extends Controller
 
     public function pdfFurtoVeiculos($id){
 
-     $veiculo = Ocorrencia::find($id);
+       $veiculo = Ocorrencia::find($id);
       //PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
 
-     $pdf = PDF::loadview ( 'imprimirFurtoVeiculo', compact('veiculo') );
-     return $pdf->download('Boletin_deocorrência_Furto de Veículo.pdf');
+       $pdf = PDF::loadview ( 'imprimirFurtoVeiculo', compact('veiculo') );
+       return $pdf->download('Boletin_deocorrência_Furto de Veículo.pdf');
 
       // return $pdf->stream();
 
 
- }
+   }
 
- public function indexFurtoVeiculo()
- {
+   public function indexFurtoVeiculo()
+   {
 
        $veiculoFurtado = Ocorrencia::where( 'placa', '<>', NULL)->paginate(5); //Retorna todos os pessoas que possui o cpf diferente de nulo, utilizando o eloquent ORM
      //$pessoas = Pessoa::all(); //Retorna todos os pessoas
@@ -85,7 +85,7 @@ class ControladorOcorrencia extends Controller
 public function storeFurtoVeiculo(Request $request)
 {
 
-   $regras = [
+ $regras = [
     'rua' => 'required',
     'bairro' => 'required',
     'cidade' => 'required',
@@ -217,92 +217,113 @@ public function destroyFurtoVeiculo($id)
 
 //--------------------------------------------------------------------------------
 
+    public function pdfPessoaDesaparecida($id){
+
+       $pessoa = Ocorrencia::find($id);
+      //PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
+
+       $pdf = PDF::loadview ( 'imprimirPessoaDesaparecida', compact('pessoa') );
+       return $pdf->download('BO_PessoDesaparecida.pdf');
+
+      // return $pdf->stream();
+
+
+   }
 
 public function indexPessoaDesaparecida()
 {
-        //
+          $pessoas = Ocorrencia::where( 'ultima_localizacao_rua', '<>', NULL)->paginate(5); //Retorna todos os pessoas que possui o cpf diferente de 
+          return view('buscaPessoasDesaparecidas', compact('pessoas'));
+      }
+
+
+      public function createPessoaDesaparecida()
+      {
+        return view('novaPessoaDesaparecida');
+    }
+
+
+    public function storePessoaDesaparecida(Request $request)
+    {
+
+     $regras = [
+        'rua' => 'required',
+        'bairro' => 'required',
+        'cidade' => 'required',
+        'estado' => 'required',
+        'descricao' => 'required',
+        'ultima_localizacao_rua' => 'required',
+        'ultima_localizacao_cidade' => 'required',
+        'ultima_localizacao_estado' => 'required',
+        'ultima_localizacao_bairro' => 'required',
+        'nascimento' => 'required',
+        'nome' => 'required',
+        'cpf' => 'required',
+        'telefone' => 'required',
+        'rg' => 'required',
+        'ufrg' => 'required',
+
+    ];
+
+    $mensagens = [
+        'required' => 'O campo :attribute é obrigatório',
+
+    ];
+
+    $rua = $request->old('rua');
+    $bairro = $request->old('bairro');
+    $cidade = $request->old('cidade');
+    $estado = $request->old('estado');
+    $descricao = $request->old('descricao');
+    $ultima_localizacao_rua = $request->old('ultima_localizacao_rua');
+    $ultima_localizacao_cidade = $request->old('ultima_localizacao_cidade');
+    $ultima_localizacao_bairro = $request->old('ultima_localizacao_bairro');
+    $ultima_localizacao_estado = $request->old('ultima_localizacao_estado');
+    $nascimento = $request->old('nascimento');
+    $nome = $request->old('nome');
+    $cpf = $request->old('cpf');
+    $telefone = $request->old('telefone');
+    $rg = $request->old('rg');
+    $ufrg = $request->old('ufrg');
+
+
+    $request->validate($regras, $mensagens);
+
+    $pessoaDesaparecida = new Ocorrencia();
+    $pessoaDesaparecida->rua = $request->input('rua');
+    $pessoaDesaparecida->bairro = $request->input('bairro');
+    $pessoaDesaparecida->cidade = $request->input('cidade');
+    $pessoaDesaparecida->estado = $request->input('estado');
+    $pessoaDesaparecida->descricao_ocorrencia = $request->input('descricao');
+    $pessoaDesaparecida->ultima_localizacao_rua = $request->input('ultima_localizacao_rua');
+    $pessoaDesaparecida->ultima_localizacao_cidade = $request->input('ultima_localizacao_cidade');
+    $pessoaDesaparecida->ultima_localizacao_estado = $request->input('ultima_localizacao_estado');
+    $pessoaDesaparecida->ultima_localizacao_bairro = $request->input('ultima_localizacao_bairro');
+    $pessoaDesaparecida->nascimento = $request->input('nascimento');
+    $pessoaDesaparecida->ufrg = $request->input('ufrg');
+    $pessoaDesaparecida->rg = $request->input('rg');
+    $pessoaDesaparecida->nome = $request->input('nome');
+    $pessoaDesaparecida->cpf = $request->input('cpf');
+    $pessoaDesaparecida->telefone = $request->input('telefone');
+    $pessoaDesaparecida->save();
+
+    return redirect('/');
+
+
 }
 
 
-public function createPessoaDesaparecida()
-{
-    return view('novaPessoaDesaparecida');
-}
-
-
-public function storePessoaDesaparecida(Request $request)
-{
-
-   $regras = [
-    'rua' => 'required',
-    'bairro' => 'required',
-    'cidade' => 'required',
-    'estado' => 'required',
-    'descricao' => 'required',
-    'ultima_localizacao_rua' => 'required',
-    'ultima_localizacao_cidade' => 'required',
-    'ultima_localizacao_estado' => 'required',
-    'ultima_localizacao_bairro' => 'required',
-    'nascimento' => 'required',
-    'nome' => 'required',
-    'cpf' => 'required',
-    'telefone' => 'required',
-    'rg' => 'required',
-    'ufrg' => 'required',
-
-];
-
-$mensagens = [
-    'required' => 'O campo :attribute é obrigatório',
-
-];
-
-$rua = $request->old('rua');
-$bairro = $request->old('bairro');
-$cidade = $request->old('cidade');
-$estado = $request->old('estado');
-$descricao = $request->old('descricao');
-$ultima_localizacao_rua = $request->old('ultima_localizacao_rua');
-$ultima_localizacao_cidade = $request->old('ultima_localizacao_cidade');
-$ultima_localizacao_bairro = $request->old('ultima_localizacao_bairro');
-$ultima_localizacao_estado = $request->old('ultima_localizacao_estado');
-$nascimento = $request->old('nascimento');
-$nome = $request->old('nome');
-$cpf = $request->old('cpf');
-$telefone = $request->old('telefone');
-$rg = $request->old('rg');
-$ufrg = $request->old('ufrg');
-
-
-$request->validate($regras, $mensagens);
-
-$pessoaDesaparecida = new Ocorrencia();
-$pessoaDesaparecida->rua = $request->input('rua');
-$pessoaDesaparecida->bairro = $request->input('bairro');
-$pessoaDesaparecida->cidade = $request->input('cidade');
-$pessoaDesaparecida->estado = $request->input('estado');
-$pessoaDesaparecida->descricao_ocorrencia = $request->input('descricao');
-$pessoaDesaparecida->ultima_localizacao_rua = $request->input('ultima_localizacao_rua');
-$pessoaDesaparecida->ultima_localizacao_cidade = $request->input('ultima_localizacao_cidade');
-$pessoaDesaparecida->ultima_localizacao_estado = $request->input('ultima_localizacao_estado');
-$pessoaDesaparecida->ultima_localizacao_bairro = $request->input('ultima_localizacao_bairro');
-$pessoaDesaparecida->nascimento = $request->input('nascimento');
-$pessoaDesaparecida->ufrg = $request->input('ufrg');
-$pessoaDesaparecida->rg = $request->input('rg');
-$pessoaDesaparecida->nome = $request->input('nome');
-$pessoaDesaparecida->cpf = $request->input('cpf');
-$pessoaDesaparecida->telefone = $request->input('telefone');
-$pessoaDesaparecida->save();
-
-return redirect('/');
-
-
-}
 
 
 public function showPessoaDesaparecida($id)
 {
-        //
+    $pessoa = Ocorrencia::find($id);
+
+    if (isset($pessoa)) {
+        return view('verBoPessoaDesaparecida', compact('pessoa'));
+    }
+
+    return redirect(route('pessoa.desaparecida.busca'));
 }
 
 
@@ -338,7 +359,7 @@ public function createAcidente()
 public function storeAcidente(Request $request)
 {
 
-   $regras = [
+ $regras = [
 
     'descricao' => 'required',
     'quant_vitimas' => 'required',
@@ -440,7 +461,7 @@ public function createDoc()
 public function storeDoc(Request $request)
 {
 
-   $regras = [
+ $regras = [
     'rua' => 'required',
     'bairro' => 'required',
     'cidade' => 'required',
@@ -529,7 +550,7 @@ public function createObj()
 public function storeObj(Request $request)
 {
 
-   $regras = [
+ $regras = [
 
     'descricao' => 'required',
     'telefone' => 'required',
