@@ -1,6 +1,5 @@
 <center><h2>Polícia Militar de Minas Gerais - PM/MG</h2>
 <h4>Sistema Gerenciador de Boletins de Ocorrência Online - SISGEBOO</h4>
-
 </center>
 
 <b>Ocorrência Anônima:</b> #00000{{$denuncia->id}} <br>
