@@ -107,6 +107,9 @@ Route::post('/admin/ocorrencias/pessoasdesaparecidas/novo', 'ControladorOcorrenc
 
 Route::get('/admin/ocorrencias/acidentestransito/novo', 'ControladorOcorrencia@createAcidente')->name('acidente.novo');
 Route::post('/admin/ocorrencias/acidentestransito/novo', 'ControladorOcorrencia@storeAcidente')->name('acidente.submit');
+Route::get('/admin/ocorrencias/acidentestransito', 'ControladorOcorrencia@indexAcidente')->name('acidente.busca');
+Route::get('/admin/ocorrencias/acidentestransito/visualizarbo/{id}', 'ControladorOcorrencia@showAcidente')->name('acidente.ver');
+Route::get('/admin/ocorrencias/acidentestransito/visualizarbo/{id}/imprimir', 'ControladorOcorrencia@pdfAcidente')->name('acidente.imprimir');
 
 Route::get('/admin/ocorrencias/documentos/novo', 'ControladorOcorrencia@createDoc')->name('doc.novo');
 Route::post('/admin/ocorrencias/documentos/novo', 'ControladorOcorrencia@storeDoc')->name('doc.submit');

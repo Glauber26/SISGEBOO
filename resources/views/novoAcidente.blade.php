@@ -238,17 +238,18 @@ Registro Acidentes de Trânsito
 
 			<select class="custom-select required mr-sm-2 {{ $errors->has('quant_vitimas') ? 'is-invalid' : '' }}"name="quant_vitimas" id="quant_vitimas">
 				<option value="{{ old('quant_vitimas') }}">{{ old('quant_vitimas') }}</option>
-				<option value="1">1</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
-				<option value="4">4</option>
-				<option value="5">5</option>
-				<option value="6">6</option>
-				<option value="7">7</option>
-				<option value="8">8</option>
-				<option value="9">9</option>
-				<option value="10">10</option>
-				<option value="Mais de 10">Mais de 10</option>
+				<option value="">Nenhuma vítima</option>
+				<option value="uma">1</option>
+				<option value="duas">2</option>
+				<option value="três">3</option>
+				<option value="quatro">4</option>
+				<option value="cinco">5</option>
+				<option value="seis">6</option>
+				<option value="sete">7</option>
+				<option value="oito">8</option>
+				<option value="nove">9</option>
+				<option value="dez">10</option>
+				<option value="mais de dez">Mais de 10</option>
 
 				@if($errors->has('quant_vitimas'))
 				<div class="invalid-feedback">
