@@ -217,18 +217,18 @@ public function destroyFurtoVeiculo($id)
 
 //--------------------------------------------------------------------------------
 
-    public function pdfPessoaDesaparecida($id){
+public function pdfPessoaDesaparecida($id){
 
-       $pessoa = Ocorrencia::find($id);
+   $pessoa = Ocorrencia::find($id);
       //PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
 
-       $pdf = PDF::loadview ( 'imprimirPessoaDesaparecida', compact('pessoa') );
-       return $pdf->download('BO_PessoDesaparecida.pdf');
+   $pdf = PDF::loadview ( 'imprimirPessoaDesaparecida', compact('pessoa') );
+   return $pdf->download('BO_PessoDesaparecida.pdf');
 
       // return $pdf->stream();
 
 
-   }
+}
 
 public function indexPessoaDesaparecida()
 {
@@ -344,14 +344,29 @@ public function updatePessoaDesaparecida(Request $request, $id)
 //-------------------------------------------------------------------
 
 
-public function indexAcidente()
-{
-        //
+public function pdfAcidente($id){
+
+    $acidente = Ocorrencia::find($id);
+      //PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
+
+    $pdf = PDF::loadview ( 'imprimirAcidente', compact('acidente') );
+    return $pdf->download('BO_Acidente.pdf');
+
+      // return $pdf->stream();
+
+
 }
 
 
-public function createAcidente()
+public function indexAcidente()
 {
+     $acidentes = Ocorrencia::where( 'vitimas', '<>', NULL)->paginate(5); //Retorna todos os pessoas que possui o cpf diferente de 
+     return view('buscaAcidentes', compact('acidentes'));
+ }
+
+
+ public function createAcidente()
+ {
     return view('novoAcidente');
 }
 
@@ -405,7 +420,7 @@ $acidente->bairro = $request->input('bairroOcorrencia');
 $acidente->cidade = $request->input('cidadeOcorrencia');
 $acidente->estado = $request->input('estadoOcorrencia');
 $acidente->descricao_local = $request->input('descricao_local');
-$acidente->descricao_suspeito = $request->input('descricao');
+$acidente->descricao_ocorrencia = $request->input('descricao');
 $acidente->quant_vitimas = $request->input('quant_vitimas');
 $acidente->vitimas = $request->input('vitimas');
 $acidente->nascimento = $request->input('nascimento');
@@ -423,7 +438,13 @@ return redirect('/');
 
 public function showAcidente($id)
 {
-        //
+    $acidente = Ocorrencia::find($id);
+
+    if (isset($acidente)) {
+        return view('verBoAcidente', compact('acidente'));
+    }
+
+    return redirect(route('acidente.busca'));
 }
 
 
