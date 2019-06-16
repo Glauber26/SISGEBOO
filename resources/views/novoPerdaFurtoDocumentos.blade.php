@@ -70,8 +70,8 @@ Registro Perda ou Furto de Documentos
 
 			<select class="custom-select required mr-sm-2 {{ $errors->has('furto_ou_perda') ? 'is-invalid' : '' }}"name="furto_ou_perda" id="furto_ou_perda">
 				<option value="{{ old('furto_ou_perda') }}">{{ old('furto_ou_perda') }}</option>
-				<option value="Furto Documento(s)">Acredito que fui furtado(a)</option>
-				<option value="Perda Documento(s)">Acredito que Perdi meu documento</option>
+				<option value="Furto Documento">Acredito que fui furtado(a)</option>
+				<option value="Perda Documento">Acredito que Perdi meu documento</option>
 
 				@if($errors->has('furto_ou_perda'))
 				<div class="invalid-feedback">
