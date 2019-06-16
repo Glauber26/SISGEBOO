@@ -21,7 +21,7 @@
 					</div>
 				</div>
 
-				<table class="table table-bordered table-hover" id="tabeladelegados">
+				<table class="table table-striped table-hover" id="tabeladelegados">
 					<thead align="center"> <!-- Cabeçalho da tabela -->
 						<tr>
 

@@ -44,17 +44,30 @@
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <a class="dropdown-item" href="{{route('admin.dashboard')}}">Dashboard Delegados</a>
                           <a class="dropdown-item" href="{{route('policial.dashboard')}}">Dashboard Policiais</a>
+                          <a class="dropdown-item" href="{{route('pessoa.dashboard')}}">Dashboard Pessoa</a>
                       </div>
 
                   </li>
 
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{route('denuncia.anonima')}}" role="button" aria-haspopup="true">
-                        Ocorrência Anônima
+    
+
+
+                <li class="nav-item dropdown">
+
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Ocorrências
                     </a>
+
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{route('denuncia.anonima')}}">Nova Ôcorrências Anônimas</a>
+                        <a class="dropdown-item" href="{{route('furto.veiculo.novo')}}">Nova Ocorrências de Furto de Veículos</a>
+                        <a class="dropdown-item" href="{{route('obj.novo')}}">Nova Ocorrências de Furto de Objetos</a>
+                        <a class="dropdown-item" href="{{route('doc.novo')}}">Nova Ocorrências de Furto de Documentos</a>
+                        <a class="dropdown-item" href="{{route('acidente.novo')}}">Nova Ocorrências de Acidentes de Trânsito</a>
+                        <a class="dropdown-item" href="{{route('pessoa.desaparecida.novo')}}">Nova Ocorrências de Pessoas Desaparecidas</a>
+                    </div>
+
                 </li>
-
-
             </ul>
 
             <!-- Right Side Of Navbar -->

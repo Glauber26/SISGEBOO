@@ -20,14 +20,14 @@
             <div class="card-header">
               <div class="card-title text-center">
                 Lista de Pessoas Estrangeiras
-                <form class="form-inline float-right">
+                <!--<form class="form-inline float-right">
                  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" align="left ">
                  <a href="#" class="btn btn-outline-success my-2 my-sm-0">Search</a>
-               </form>
+               </form>-->
              </div>
            </div>
 
-           <table class="table table-bordered table-hover" id="tabelapessoas">
+           <table class="table table-striped table-hover" id="tabelapessoas">
             <thead align="center"> <!-- Cabeçalho da tabela -->
               <tr>
 

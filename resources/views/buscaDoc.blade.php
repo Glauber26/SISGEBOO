@@ -1,7 +1,11 @@
 @extends('layouts.appDenuncia')
 
+@section('naveg')
+Ocorrências Furtos e Roubos de Documentos
+@endsection
+
 @section('denunciaNome')
-Documento
+Furto/Roubo de Documento
 @endsection
 
 @section('denuncia')

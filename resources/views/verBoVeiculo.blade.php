@@ -1,15 +1,18 @@
 @extends('layouts.appDenuncia')
 
+@section('naveg')
+Ocorrência Furto de Veículo #00000{{$veiculo->id}}
+@section('linkantigo')
+<li class="breadcrumb-item"><a href="http://localhost/SISGEBOO/public/admin/ocorrencias/furto/veiculos">Ocorrências Furtos e Roubos de Documentos</a></li>
+@endsection
+@endsection
+
 @section('denunciaNome')
-Veículos Furtados
+Ocorrência Furto de Veículo #00000{{$veiculo->id}}
 @endsection
 
 @section('denuncia')
 
-<div class="card">
-	<div class="card-header" align="center">Ocorrência Furto de Veículo #00000{{$veiculo->id}}</div>
-
-	<div class="card-body">
 		<div class="container" align="center">
 			<div class="row">
 				<div class="col-sm">
@@ -80,9 +83,6 @@ Veículos Furtados
 	</div>
 
 	<div class="card-footer"><a href="/SISGEBOO/public/admin/ocorrencias/furto/veiculos/visualizarbo/{{$veiculo->id}}/imprimir"  class="btn btn-sm btn-outline-success my-2 my-sm-0">Emitir Boletin de Ocorrência</a></div>
-</div>
-</div>
-</div>
 </div>
 
 @endsection

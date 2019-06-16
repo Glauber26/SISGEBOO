@@ -16,7 +16,7 @@
 			<div class="card">
 				<div class="card-header" align="center">Ocorrências Anônimas - Exibindo {{$ocorrencias->count()}} ocorrências de {{$ocorrencias->total()}}</div>
 
-				<table class="table table-bordered table-hover" id="tabelaocorrencias">
+				<table class="table table-striped table-hover" id="tabelaocorrencias">
 					<thead align="center"> <!-- Cabeçalho da tabela -->
 						<tr>
 							<th>Tipo</th>

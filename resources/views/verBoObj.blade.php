@@ -1,5 +1,12 @@
 @extends('layouts.appDenuncia')
 
+@section('naveg')
+Ocorrência Furto de {{$obj->objeto_nome}} #00000{{$obj->id}}
+@section('linkantigo')
+<li class="breadcrumb-item"><a href="http://localhost/SISGEBOO/public/admin/ocorrencias/objetos">Ocorrências Furtos e Roubos de Documentos</a></li>
+@endsection
+@endsection
+
 @section('denunciaNome')
 Ocorrência Furto de {{$obj->objeto_nome}} #00000{{$obj->id}}
 @endsection

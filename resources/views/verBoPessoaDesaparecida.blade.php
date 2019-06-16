@@ -1,15 +1,18 @@
 @extends('layouts.appDenuncia')
 
+@section('naveg')
+Ocorrência Pessoa Desaparecida #00000{{$pessoa->id}}
+@section('linkantigo')
+<li class="breadcrumb-item"><a href="http://localhost/SISGEBOO/public/admin/ocorrencias/pessoasdesaparecidas">Ocorrências Furtos e Roubos de Documentos</a></li>
+@endsection
+@endsection
+
 @section('denunciaNome')
-Pessoa Desaparecida
+Ocorrência Pessoa Desaparecida #00000{{$pessoa->id}}
 @endsection
 
 @section('denuncia')
 
-<div class="card">
-	<div class="card-header" align="center">Ocorrência Furto de Veículo #00000{{$pessoa->id}}</div>
-
-	<div class="card-body">
 		<div class="container" align="center">
 			<div class="row">
 				<div class="col-sm">
@@ -66,9 +69,6 @@ Pessoa Desaparecida
 	</div>
 
 	<div class="card-footer"><a href="/SISGEBOO/public/admin/ocorrencias/pessoasdesaparecidas/visualizarbo/{{$pessoa->id}}/imprimir"  class="btn btn-sm btn-outline-success my-2 my-sm-0">Emitir Boletin de Ocorrência</a></div>
-</div>
-</div>
-</div>
 </div>
 
 @endsection

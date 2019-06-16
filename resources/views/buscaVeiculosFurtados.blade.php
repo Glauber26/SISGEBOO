@@ -1,13 +1,14 @@
 @extends('layouts.appDenuncia')
 
+@section('naveg')
+Ocorrências Furto de Veículo
+@endsection
+
 @section('denunciaNome')
-Veículos Furtados
+Ocorrências Furto de Veículo
 @endsection
 
 @section('denuncia')
-<div class="card">
-	<div class="card-header" align="center">Ocorrências Furto de Veículo</div>
-	<div class="card-body">
 		<table class="table table-striped table-hover" id="tabelapessoas">
 			<thead align="center"> <!-- Cabeçalho da tabela -->
 				<tr>
@@ -47,9 +48,4 @@ Veículos Furtados
 			<div class="card-footer" align="center">
 				{{$veiculoFurtado->links()}}	
 			</div>
-
-
-			</div>
-		</div>
-	</div>
 	@endsection

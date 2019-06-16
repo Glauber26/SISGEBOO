@@ -1,15 +1,18 @@
 @extends('layouts.appDenuncia')
 
+@section('naveg')
+Ocorrência Acidente de Trânsito #00000{{$acidente->id}}
+@section('linkantigo')
+<li class="breadcrumb-item"><a href="http://localhost/SISGEBOO/public/admin/ocorrencias/acidentestransito">Ocorrências Furtos e Roubos de Documentos</a></li>
+@endsection
+@endsection
+
 @section('denunciaNome')
-Acidente de Trânsito
+Acidente de Trânsito #00000{{$acidente->id}}
 @endsection
 
 @section('denuncia')
 
-<div class="card">
-	<div class="card-header" align="center">Acidente de Trânsito #00000{{$acidente->id}}</div>
-
-	<div class="card-body">
 		<div class="container" align="center">
 			<div class="row">
 				<div class="col-sm">
@@ -66,9 +69,6 @@ Acidente de Trânsito
 	</div>
 
 	<div class="card-footer"><a href="/SISGEBOO/public/admin/ocorrencias/acidentestransito/visualizarbo/{{$acidente->id}}/imprimir"  class="btn btn-sm btn-outline-success my-2 my-sm-0">Emitir Boletin de Ocorrência</a></div>
-</div>
-</div>
-</div>
 </div>
 
 @endsection

@@ -25,6 +25,7 @@ Route::get('/imprimir/{id}', 'ControladorDenunciaAnonima@pdf')->name('home');
 
 //Rotas Admin
 Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
+Route::get('/admin/imprimir', 'AdminController@pdf')->name('admin.pdf');
 Route::get('/admin/login', 'Auth\AdminLoginController@index')->name('admin.login');
 Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
 

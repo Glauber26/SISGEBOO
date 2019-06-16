@@ -35,7 +35,7 @@
                     <ul class="navbar-nav mr-auto">
 
 
-                       <li class="nav-item dropdown">
+                     <li class="nav-item dropdown">
 
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Administrativo Delegacia
@@ -98,10 +98,11 @@
 
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{route('busca.ocorrencias.anonimas')}}">Listar Ôcorrências Anônimas</a>
-                        <a class="dropdown-item disabled" href="#">Ocorrências de Furto de Veículos</a>
-                        <a class="dropdown-item disabled" href="#">Ocorrências de Furto de Objetos</a>
-                        <a class="dropdown-item disabled" href="#">Ocorrências de Furto de Documentos</a>
-                        <a class="dropdown-item disabled" href="#">Ocorrências de Pessoas Desaparecidas</a>
+                        <a class="dropdown-item" href="{{route('busca.furto.veiculo')}}">Ocorrências de Furto de Veículos</a>
+                        <a class="dropdown-item" href="{{route('obj.busca')}}">Ocorrências de Furto de Objetos</a>
+                        <a class="dropdown-item" href="{{route('doc.busca')}}">Ocorrências de Furto de Documentos</a>
+                        <a class="dropdown-item" href="{{route('acidente.busca')}}">Ocorrências de Acidentes de Trânsito</a>
+                        <a class="dropdown-item" href="{{route('pessoa.desaparecida.busca')}}">Ocorrências de Pessoas Desaparecidas</a>
                     </div>
 
                 </li>
