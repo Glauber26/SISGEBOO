@@ -118,4 +118,7 @@ Route::get('/admin/ocorrencias/documentos/novo', 'ControladorOcorrencia@createDo
 Route::post('/admin/ocorrencias/documentos/novo', 'ControladorOcorrencia@storeDoc')->name('doc.submit');
 
 Route::get('/admin/ocorrencias/objetos/novo', 'ControladorOcorrencia@createObj')->name('obj.novo');
+Route::get('/admin/ocorrencias/objetos', 'ControladorOcorrencia@indexObj')->name('obj.busca');
+Route::get('/admin/ocorrencias/objetos/visualizarbo/{id}', 'ControladorOcorrencia@showObj')->name('obj.ver');
+Route::get('/admin/ocorrencias/objetos/visualizarbo/{id}/imprimir', 'ControladorOcorrencia@pdfObj')->name('obj.imprimir');
 Route::post('/admin/ocorrencias/objetos/novo', 'ControladorOcorrencia@storeObj')->name('obj.submit');

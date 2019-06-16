@@ -576,9 +576,26 @@ public function updateDoc(Request $request, $id)
 
 //--------------------------------------------------------------------------------
 
+
+
+
+public function pdfObj($id){
+
+    $obj = Ocorrencia::find($id);
+      //PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
+
+    $pdf = PDF::loadview ( 'imprimirObj', compact('obj') );
+    return $pdf->download('BO_Objeto.pdf');
+
+      // return $pdf->stream();
+
+
+}
+
 public function indexObj()
 {
-        //
+  $objs = Ocorrencia::where( 'objeto_nome', '<>', NULL)->paginate(5); //Retorna todos os pessoas que possui o cpf diferente de 
+  return view('buscaObj', compact('objs'));
 }
 
 
@@ -684,7 +701,14 @@ return redirect('/');
 
 public function showObj($id)
 {
-        //
+    $obj = Ocorrencia::find($id);
+
+   if (isset($obj)) {
+       return view('verBoObj', compact('obj'));
+   }
+
+   return redirect(route('obj.busca'));
+
 }
 
 
