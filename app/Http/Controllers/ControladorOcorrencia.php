@@ -56,19 +56,19 @@ class ControladorOcorrencia extends Controller
 
     public function pdfFurtoVeiculos($id){
 
-       $veiculo = Ocorrencia::find($id);
+     $veiculo = Ocorrencia::find($id);
       //PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
 
-       $pdf = PDF::loadview ( 'imprimirFurtoVeiculo', compact('veiculo') );
-       return $pdf->download('Boletin_deocorrência_Furto de Veículo.pdf');
+     $pdf = PDF::loadview ( 'imprimirFurtoVeiculo', compact('veiculo') );
+     return $pdf->download('Boletin_deocorrência_Furto de Veículo.pdf');
 
       // return $pdf->stream();
 
 
-   }
+ }
 
-   public function indexFurtoVeiculo()
-   {
+ public function indexFurtoVeiculo()
+ {
 
        $veiculoFurtado = Ocorrencia::where( 'placa', '<>', NULL)->paginate(5); //Retorna todos os pessoas que possui o cpf diferente de nulo, utilizando o eloquent ORM
      //$pessoas = Pessoa::all(); //Retorna todos os pessoas
@@ -85,7 +85,7 @@ class ControladorOcorrencia extends Controller
 public function storeFurtoVeiculo(Request $request)
 {
 
- $regras = [
+   $regras = [
     'rua' => 'required',
     'bairro' => 'required',
     'cidade' => 'required',
@@ -219,11 +219,11 @@ public function destroyFurtoVeiculo($id)
 
 public function pdfPessoaDesaparecida($id){
 
-   $pessoa = Ocorrencia::find($id);
+ $pessoa = Ocorrencia::find($id);
       //PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
 
-   $pdf = PDF::loadview ( 'imprimirPessoaDesaparecida', compact('pessoa') );
-   return $pdf->download('BO_PessoDesaparecida.pdf');
+ $pdf = PDF::loadview ( 'imprimirPessoaDesaparecida', compact('pessoa') );
+ return $pdf->download('BO_PessoDesaparecida.pdf');
 
       // return $pdf->stream();
 
@@ -246,7 +246,7 @@ public function indexPessoaDesaparecida()
     public function storePessoaDesaparecida(Request $request)
     {
 
-     $regras = [
+       $regras = [
         'rua' => 'required',
         'bairro' => 'required',
         'cidade' => 'required',
@@ -374,7 +374,7 @@ public function indexAcidente()
 public function storeAcidente(Request $request)
 {
 
- $regras = [
+   $regras = [
 
     'descricao' => 'required',
     'quant_vitimas' => 'required',
@@ -466,15 +466,29 @@ public function updateAcidente(Request $request, $id)
 
 
 
+public function pdfDoc($id){
 
-public function indexDoc()
-{
-        //
+    $doc = Ocorrencia::find($id);
+      //PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
+
+    $pdf = PDF::loadview ( 'imprimirDoc', compact('doc') );
+    return $pdf->download('BO_Documento.pdf');
+
+      // return $pdf->stream();
+
+
 }
 
 
-public function createDoc()
+public function indexDoc()
 {
+      $docs = Ocorrencia::where( 'doc_numero', '<>', NULL)->paginate(5); //Retorna todos os pessoas que possui o cpf diferente de 
+      return view('buscaDoc', compact('docs'));
+  }
+
+
+  public function createDoc()
+  {
     return view('novoPerdaFurtoDocumentos');
 }
 
@@ -482,7 +496,7 @@ public function createDoc()
 public function storeDoc(Request $request)
 {
 
- $regras = [
+   $regras = [
     'rua' => 'required',
     'bairro' => 'required',
     'cidade' => 'required',
@@ -539,7 +553,13 @@ return redirect('/');
 
 public function showDoc($id)
 {
-        //
+    $doc = Ocorrencia::find($id);
+
+    if (isset($doc)) {
+        return view('verBoDoc', compact('doc'));
+    }
+
+    return redirect(route('doc.busca'));
 }
 
 
@@ -571,7 +591,7 @@ public function createObj()
 public function storeObj(Request $request)
 {
 
- $regras = [
+   $regras = [
 
     'descricao' => 'required',
     'telefone' => 'required',

@@ -111,6 +111,9 @@ Route::get('/admin/ocorrencias/acidentestransito', 'ControladorOcorrencia@indexA
 Route::get('/admin/ocorrencias/acidentestransito/visualizarbo/{id}', 'ControladorOcorrencia@showAcidente')->name('acidente.ver');
 Route::get('/admin/ocorrencias/acidentestransito/visualizarbo/{id}/imprimir', 'ControladorOcorrencia@pdfAcidente')->name('acidente.imprimir');
 
+Route::get('/admin/ocorrencias/documentos', 'ControladorOcorrencia@indexDoc')->name('doc.busca');
+Route::get('/admin/ocorrencias/documentos/visualizarbo/{id}', 'ControladorOcorrencia@showDoc')->name('doc.ver');
+Route::get('/admin/ocorrencias/documentos/visualizarbo/{id}/imprimir', 'ControladorOcorrencia@pdfDoc')->name('doc.imprimir');
 Route::get('/admin/ocorrencias/documentos/novo', 'ControladorOcorrencia@createDoc')->name('doc.novo');
 Route::post('/admin/ocorrencias/documentos/novo', 'ControladorOcorrencia@storeDoc')->name('doc.submit');
 
