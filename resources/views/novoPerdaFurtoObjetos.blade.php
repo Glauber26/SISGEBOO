@@ -212,8 +212,8 @@ Registro Perda ou Furto de Objetos
 
 			<select class="custom-select required mr-sm-2 {{ $errors->has('furto_ou_perda') ? 'is-invalid' : '' }}"name="furto_ou_perda" id="furto_ou_perda">
 				<option value="{{ old('furto_ou_perda') }}">{{ old('furto_ou_perda') }}</option>
-				<option value="Furto Objeto(s)">Acredito que fui furtado(a)</option>
-				<option value="Perda Objeto(s)">Acredito que Perdi meu objeto</option>
+				<option value="Furto Objeto">Acredito que fui furtado(a)</option>
+				<option value="Perda Objeto">Acredito que Perdi meu objeto</option>
 
 				@if($errors->has('furto_ou_perda'))
 				<div class="invalid-feedback">
