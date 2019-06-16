@@ -26,3 +26,5 @@ O condutor do veículo <b>{{$acidente->nome}}</b> informa por meio deste Boletin
 O condutor {{$acidente->nome}}</b> informa os detalhes do acidente "{{$acidente->descricao_ocorrencia}}".
 <br>
 O condutor tambem informa que, <b>{{$acidente->vitimas}}</b> teve <b>{{$acidente->quant_vitimas}}</b> vitima(s)
+
+<br><br><br><br><br><br><br><br><br><br><center>Assinatura Delegado de Plantão</center>
