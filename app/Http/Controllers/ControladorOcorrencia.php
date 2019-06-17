@@ -135,7 +135,7 @@ $furtoVeiculo->cpf = $request->input('cpf');
 $furtoVeiculo->telefone = $request->input('telefone');
 $furtoVeiculo->save();
 
-return redirect(route('busca.furto.veiculo'));
+return redirect(route('pessoa.dashboard'));
 
 
 }
@@ -265,7 +265,7 @@ public function indexPessoaDesaparecida()
     $pessoaDesaparecida->telefone = $request->input('telefone');
     $pessoaDesaparecida->save();
 
-    return redirect('/');
+    return redirect(route('pessoa.dashboard'));
 
 
 }
@@ -388,7 +388,7 @@ $acidente->nome = $request->input('nome');
 $acidente->cpf = $request->input('cpf');
 $acidente->save();
 
-return redirect('/');
+return redirect(route('pessoa.dashboard'));
 
 
 }
@@ -503,7 +503,7 @@ $docFurtoPerda->tipo = $request->input('tipo');
 $docFurtoPerda->doc_numero = $request->input('doc_numero');
 $docFurtoPerda->save();
 
-return redirect('/');
+return redirect(route('pessoa.dashboard'));
 
 
 }
@@ -651,7 +651,7 @@ $objeto->ameaca = $request->input('ameaca');
 $objeto->publico = $request->input('publico');
 $objeto->save();
 
-return redirect('/');
+return redirect(route('pessoa.dashboard'));
 
 
 }

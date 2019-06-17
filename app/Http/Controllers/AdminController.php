@@ -53,6 +53,8 @@ class AdminController extends Controller
 			$maior1 = 'Maior indice no mês foi de Denuncias Anônimas, teve um total de: ';
 		}
 
+	
+
 
 
 		$pdf = PDF::loadview ( 'ocorrenciasConstantes', compact('veiculoFurtado', 'anonimas', 'docs', 'acidentes', 'objs', 'desaparecidas', 'maior', 'maior1'));
