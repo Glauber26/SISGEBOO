@@ -1,6 +1,10 @@
-@extends('layouts.appDenuncia')
+@extends('layouts.appDenuncia1')
 
 @section('denunciaNome')
+Registro Perda ou Furto de Objetos
+@endsection
+
+@section('naveg')
 Registro Perda ou Furto de Objetos
 @endsection
 

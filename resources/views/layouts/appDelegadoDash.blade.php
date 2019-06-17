@@ -35,7 +35,7 @@
                     <ul class="navbar-nav mr-auto">
 
 
-                       <li class="nav-item dropdown">
+                     <li class="nav-item dropdown">
 
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Administrativo Delegacia
@@ -44,6 +44,7 @@
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <a class="dropdown-item" href="{{route('admin.dashboard')}}">Dashboard Delegados</a>
                           <a class="dropdown-item" href="{{route('policial.dashboard')}}">Dashboard Policiais</a>
+                          <a class="dropdown-item" href="{{route('pessoa.dashboard')}}">Dashboard Pessoa</a>
                       </div>
 
                   </li>

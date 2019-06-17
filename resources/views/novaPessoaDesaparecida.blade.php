@@ -1,9 +1,12 @@
-@extends('layouts.appDenuncia')
+@extends('layouts.appDenuncia1')
 
 @section('denunciaNome')
-Registro Pessoas Desaparecidas
+Registro de Pessoas Desaparecidas
 @endsection
 
+@section('naveg')
+Registro de Pessoas Desaparecidas
+@endsection
 @section('denuncia')
 
 <form method="POST" action="{{ route('pessoa.desaparecida.submit') }}">

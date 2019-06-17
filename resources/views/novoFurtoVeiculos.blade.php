@@ -1,8 +1,13 @@
-@extends('layouts.appDenuncia')
+@extends('layouts.appDenuncia1')
 
 @section('denunciaNome')
 Registro Furto de Veículos
 @endsection
+
+@section('naveg')
+Registro Furto de Veículos
+@endsection
+
 
 @section('denuncia')
 

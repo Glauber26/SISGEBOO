@@ -1,13 +1,14 @@
-@extends('layouts.app')
+@extends('layouts.appDenuncia1')
 
-@section('content')
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-12">
-      <div class="card">
-        <div class="card-header">Registrar Denúncia Anônima</div>
+@section('denunciaNome')
+Registro de Denuncias Anônimas
+@endsection
 
-        <div class="card-body">
+@section('naveg')
+Registro de Denuncias Anônimas
+@endsection
+@section('denuncia')
+
           <form method="POST" action="{{ route('denuncia.anonima.submit') }}">
             @csrf
 
@@ -138,9 +139,4 @@
             <!--Botão de Enviar o formulario-->
             <button type="submit" class="btn btn-primary">Registrar Ocorrência Anônima</button> 
           </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 @endsection

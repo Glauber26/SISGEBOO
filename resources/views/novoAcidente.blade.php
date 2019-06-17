@@ -1,6 +1,10 @@
-@extends('layouts.appDenuncia')
+@extends('layouts.appDenuncia1')
 
 @section('denunciaNome')
+Registro Acidentes de Trânsito
+@endsection
+
+@section('naveg')
 Registro Acidentes de Trânsito
 @endsection
 
