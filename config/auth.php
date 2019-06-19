@@ -46,6 +46,39 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+
+        'admin-api' => [
+            'driver' => 'token',
+            'provider' => 'admins',
+            'hash' => false,
+        ],
+
+        'policial' => [
+            'driver' => 'session',
+            'provider' => 'policiais',
+        ],
+
+        'policial-api' => [
+            'driver' => 'token',
+            'provider' => 'policiais',
+            'hash' => false,
+        ],
+
+        'pessoa' => [
+            'driver' => 'session',
+            'provider' => 'pessoas',
+        ],
+
+        'pessoa-api' => [
+            'driver' => 'token',
+            'provider' => 'pessoas',
+            'hash' => false,
+        ],
     ],
 
     /*
@@ -69,6 +102,21 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+        ],
+
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Admin::class,
+        ],
+
+        'policiais' => [
+            'driver' => 'eloquent',
+            'model' => App\Policial::class,
+        ],
+
+        'pessoas' => [
+            'driver' => 'eloquent',
+            'model' => App\Pessoa::class,
         ],
 
         // 'users' => [
@@ -95,6 +143,24 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+
+        'admins' => [
+            'provider' => 'admins',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+
+        'policiais' => [
+            'provider' => 'policiais',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+
+        'pessoas' => [
+            'provider' => 'pessoas',
             'table' => 'password_resets',
             'expire' => 60,
         ],
